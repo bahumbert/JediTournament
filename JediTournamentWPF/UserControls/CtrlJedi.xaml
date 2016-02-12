@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="JediTournamentWPF.CtrlJedi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="210" d:DesignWidth="300">
+    <Grid Name="MainGrid">
+        <Grid Name="splitGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="C1" Width="120*"/>
+                <ColumnDefinition SharedSizeGroup="C2" Width="180*"/>
+            </Grid.ColumnDefinitions>
+            <Image Source="{Binding Path=Image}" Grid.Column="0" x:Name="jediImage" VerticalAlignment="Stretch" HorizontalAlignment="Left" Height="200" Width="120"/>
+            <StackPanel Grid.Column="1">
+                <Label HorizontalAlignment="Center" Foreground="{StaticResource MainColor}" FontFamily="{StaticResource MainFont}">
+                    Fiche de Jedi
+                </Label>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition SharedSizeGroup="R1"/>
+                        <RowDefinition SharedSizeGroup="R2"/>
+                        <RowDefinition SharedSizeGroup="R3"/>
+                        <RowDefinition SharedSizeGroup="R4"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="C1"/>
+                        <ColumnDefinition SharedSizeGroup="C2"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Foreground="{StaticResource MainColor}">Nom :</Label>
+                    <TextBox HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1" Width="90" TextAlignment="Center" Text="{Binding Path=Nom}" Foreground="{StaticResource MainColor}" Background="Transparent" BorderBrush="{StaticResource BorderMainColor}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Foreground="{StaticResource MainColor}" Grid.ColumnSpan="2" Margin="0,0,80,0" >Seigneur Sith :</Label>
+                    <CheckBox x:Name="sithCheckBox" Grid.Row="1" Grid.Column="1" Content="" Margin="0,6,0,0" IsChecked="{Binding Path=IsSith}" Foreground="{StaticResource MainColor}" Background="Transparent" BorderBrush="{StaticResource BorderMainColor}" />
+
+                    <Label Grid.Row="2" Grid.Column="0" Foreground="{StaticResource MainColor}" Grid.ColumnSpan="2" Margin="0,0,32,0">Caractéristiques :</Label>
+                    <ListBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Height="100" ItemsSource="{Binding Path=Caracteristiques}" Foreground="{StaticResource MainColor}" Background="Transparent" BorderBrush="{StaticResource BorderMainColor}" FontSize="10"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

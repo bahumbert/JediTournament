@@ -1,0 +1,36 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             xmlns:JediTournamentWPF="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.CtrlJedis"
+             mc:Ignorable="d" Height="495" Width="370">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="C1" />
+            <ColumnDefinition SharedSizeGroup="C2" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="listeLabel" Grid.Row="0" Grid.ColumnSpan="2" Content="Liste des Jedis" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Foreground="{StaticResource MainColor}" FontFamily="{StaticResource MainFont}"/>
+        <ListView Name="listJedis" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Jedis}" SelectedItem="{Binding SelectedItem}" Background="Transparent" Foreground="{StaticResource MainColor}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="205"/>
+                    <GridViewColumn Header="Côté de la force" DisplayMemberBinding="{Binding JediState}" Width="145"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="browseButton"  Grid.Row="2" Grid.Column="0" Content="Parcourir" VerticalAlignment="Bottom" Command="{Binding Path=BrowseCommand}"/>
+        <Button x:Name="addCaracButton"  Grid.Row="2" Grid.Column="1" Content="Modifier Caractéristiques" VerticalAlignment="Bottom" Command="{Binding Path=ModifyCaracsCommand}"/>
+        <JediTournamentWPF:CtrlJedi x:Name="jediController" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding SelectedItem}" Width="300" />
+        <Button x:Name="newButton" Grid.Row="4" Grid.Column="0" Content="Nouveau" VerticalAlignment="Top" Command="{Binding Path=NewCommand}" />
+        <Button x:Name="removeButton" Grid.Row="4" Grid.Column="1" Content="Supprimer" VerticalAlignment="Top" Command="{Binding Path=RemoveCommand}"/>
+    </Grid>
+</UserControl>

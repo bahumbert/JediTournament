@@ -1,0 +1,63 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             xmlns:JediTournamentWPF="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.CtrlTournoiModif"
+             mc:Ignorable="d" 
+             d:DesignHeight="480" Width="600">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="230"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <Label x:Name="listTournoiLabel" Content="Liste des tournois" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource ResourceKey=MainFont}" Foreground="{StaticResource MainColor}"/>
+            <ListBox x:Name="tournoisList" HorizontalAlignment="Center" VerticalAlignment="Center" Height="170" Width="150" Background="Transparent" Foreground="{StaticResource MainColor}" ItemsSource="{Binding Tournois}" SelectedItem="{Binding SelectedTournoi}" DisplayMemberPath="Nom"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Label x:Name="curName" Content="Tournoi sélectionné" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource ResourceKey=MainFont}" Foreground="{StaticResource MainColor}"/>
+            <TextBox x:Name="tounoiName" HorizontalAlignment="Center" TextWrapping="Wrap" DataContext="{Binding SelectedTournoi}" Text="{Binding Path=Nom}" Background="Transparent" Foreground="{StaticResource MainColor}" BorderBrush="{StaticResource BorderMainColor}" VerticalAlignment="Top" Height="25" Width="120"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" Width="225">
+            <Label x:Name="affectedMatchLabel" Content="Liste des matchs affectés" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource MainFont}" Foreground="{StaticResource MainColor}"/>
+            <ListView x:Name="affectedMatchList" Background="Transparent" ItemsSource="{Binding AffectedMatchs}" SelectedItem="{Binding SelectedAffectedMatch}" Foreground="{StaticResource MainColor}" Height="170">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Jedi Numéro 1" DisplayMemberBinding="{Binding Jedi1}"/>
+                        <GridViewColumn Header="Jedi Numéro 2" DisplayMemberBinding="{Binding Jedi2}"/>
+                        <GridViewColumn Header="Stade" DisplayMemberBinding="{Binding Stade}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+        <Button x:Name="newButton" Grid.Row="1" Grid.Column="0" Content="Nouveau tournoi" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Command="{Binding NewCommand}"/>
+        <Button x:Name="delButton" Grid.Row="2" Grid.Column="0" Content="Supprimer tournoi" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Command="{Binding DelCommand}"/>
+
+        <Button x:Name="addButton" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1"  Content="Ajouter" VerticalAlignment="Center" Command="{Binding AddCommand}"/>
+        <Button x:Name="removeButton" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Content="Supprimer" VerticalAlignment="Center" Command="{Binding RemoveCommand}"/>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="440">
+            <Label x:Name="availableMatchLabel" Content="Liste des matchs disponibles" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="{StaticResource MainFont}" Foreground="{StaticResource MainColor}"/>
+            <ListView x:Name="availableMatchList" Background="Transparent" ItemsSource="{Binding AvailableMatchs}" SelectedItem="{Binding SelectedAvailableMatch}" Foreground="{StaticResource MainColor}" Height="200">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Jedi Numéro 1" DisplayMemberBinding="{Binding Jedi1}"/>
+                        <GridViewColumn Header="Jedi Numéro 2" DisplayMemberBinding="{Binding Jedi2}"/>
+                        <GridViewColumn Header="Stade" DisplayMemberBinding="{Binding Stade}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</UserControl>

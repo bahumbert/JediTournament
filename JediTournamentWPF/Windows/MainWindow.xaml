@@ -1,0 +1,101 @@
+﻿<Window x:Class="JediTournamentWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        ResizeMode="NoResize"  
+        xmlns:local="clr-namespace:JediTournamentWPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Jedi Tournament 2016" Width="800" Height="264.346" Icon="{StaticResource AppIcon}" Closing="Window_Closing">
+    <Window.Background>
+        <ImageBrush ImageSource="{StaticResource MainBackground}"/>
+    </Window.Background>
+    <Grid x:Name="MainGrid" Height="163" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="C1"/>
+            <ColumnDefinition SharedSizeGroup="C2"/>
+            <ColumnDefinition SharedSizeGroup="C3"/>
+            <ColumnDefinition SharedSizeGroup="C4"/>
+            <ColumnDefinition SharedSizeGroup="C5"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="MainText" TextAlignment="Center" HorizontalAlignment="Center" Padding="0,20,0,0" TextWrapping="Wrap" Text="Jedi Tournament 2016" VerticalAlignment="Top" Height="85" Width="{Binding ElementName=MainGrid, Path=ActualWidth}" FontWeight="Bold" FontSize="30" Grid.ColumnSpan="5" Foreground="{StaticResource MainColor}" FontFamily="{StaticResource MainFont}"/>
+        <Button x:Name="buttonJedis" Grid.Column="0" Content="Jedis" HorizontalAlignment="Left" Margin="27,90,0,0" VerticalAlignment="Top" Width="100" Height="40" Foreground="LightGray" Click="buttonJedis_Click" BorderBrush="#FFE8D303" FontFamily="{StaticResource MainFont}">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="buttonStades" Grid.Column="1" Content="Stades" HorizontalAlignment="Left" Margin="29,90,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="buttonStades_Click" BorderBrush="#FFE8D303" Foreground="LightGray" FontFamily="{StaticResource MainFont}">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="buttonMatch" Grid.Column="2" Content="Matchs" HorizontalAlignment="Left" Margin="31,90,0,0" VerticalAlignment="Top" Width="100" Height="40" BorderBrush="#FFE8D303" Click="buttonMatch_Click" Foreground="LightGray" FontFamily="{StaticResource MainFont}">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="buttonTournois" Grid.Column="3" Content="Tournois" HorizontalAlignment="Left" Margin="27,90,0,0" VerticalAlignment="Top" Width="100" Height="40" BorderBrush="#FFE8D303" Foreground="LightGray" FontFamily="{StaticResource MainFont}" Click="buttonTournois_Click">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="buttonLancer" Grid.Column="4" Content="Lancer" HorizontalAlignment="Left" Margin="28,90,0,0" VerticalAlignment="Top" Width="100" Height="40" BorderBrush="#FFE8D303" Foreground="LightGray" FontFamily="{StaticResource MainFont}" Click="buttonLancer_Click">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <Button x:Name="buttonExport_jedis" Grid.Column="2" Content="Exporter Jedis" HorizontalAlignment="Left" Margin="16,173,0,-50" VerticalAlignment="Top" Width="130" Height="40" Foreground="LightGray" Click="ExportJedi_Click" BorderBrush="#FFE8D303" FontFamily="{StaticResource MainFont}">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Red" Offset="0"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF500000" Offset="0.618"/>
+                </RadialGradientBrush>
+            </Button.Background>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

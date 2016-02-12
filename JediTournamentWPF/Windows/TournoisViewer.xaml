@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JediTournamentWPF.Windows"
+        ResizeMode="NoResize"  
+        xmlns:UserControls="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.Windows.TournoisViewer"
+        mc:Ignorable="d"
+        Title="Gestionnaire des Tournois" Height="510" Width="610" Icon="{StaticResource AppIcon}" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Window.Background>
+        <ImageBrush ImageSource="{StaticResource MainBackground}"/>
+    </Window.Background>
+    <Grid>
+        <UserControls:CtrlTournoiModif x:Name="tournoisController" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D2D39BF-3F44-4ED6-BFB6-8F41CCA504DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JediTournamentWPF</RootNamespace>
+    <AssemblyName>JediTournamentWPF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Core\MatchPlayer.cs" />
+    <Compile Include="Core\MatchPLayerGlobal.cs" />
+    <Compile Include="MVVM Base\RelayCommand.cs" />
+    <Compile Include="Tools\EnumBindingSourceExtension.cs" />
+    <Compile Include="UserControls\CtrlCaracLocked.xaml.cs">
+      <DependentUpon>CtrlCaracLocked.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlCarac.xaml.cs">
+      <DependentUpon>CtrlCarac.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlTournoiModif.xaml.cs">
+      <DependentUpon>CtrlTournoiModif.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlCaracsModif.xaml.cs">
+      <DependentUpon>CtrlCaracsModif.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlJediLocked.xaml.cs">
+      <DependentUpon>CtrlJediLocked.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlJedis.xaml.cs">
+      <DependentUpon>CtrlJedis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlMatchBis.xaml.cs">
+      <DependentUpon>CtrlMatchBis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlStadeLocked.xaml.cs">
+      <DependentUpon>CtrlStadeLocked.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlTournoi.xaml.cs">
+      <DependentUpon>CtrlTournoi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlMatch.xaml.cs">
+      <DependentUpon>CtrlMatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlMatchs.xaml.cs">
+      <DependentUpon>CtrlMatchs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CtrlStade.xaml.cs">
+      <DependentUpon>CtrlStade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsModels\CaracsModifViewModel.cs" />
+    <Compile Include="ViewsModels\CaracViewModel.cs" />
+    <Compile Include="ViewsModels\TournoisViewModel.cs" />
+    <Compile Include="ViewsModels\TournoiViewModel.cs" />
+    <Compile Include="Windows\CaracsViewer.xaml.cs">
+      <DependentUpon>CaracsViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GagnantPopUp.xaml.cs">
+      <DependentUpon>GagnantPopUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ScanPFC.xaml.cs">
+      <DependentUpon>ScanPFC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TournoiChoix.xaml.cs">
+      <DependentUpon>TournoiChoix.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TournoiChoixSelection.xaml.cs">
+      <DependentUpon>TournoiChoixSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TournoiSelection.xaml.cs">
+      <DependentUpon>TournoiSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TournoisViewer.xaml.cs">
+      <DependentUpon>TournoisViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TournoiViewer.xaml.cs">
+      <DependentUpon>TournoiViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\StadesViewer.xaml.cs">
+      <DependentUpon>StadesViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsModels\MatchsViewModel.cs" />
+    <Compile Include="ViewsModels\MatchViewModel.cs" />
+    <Compile Include="Windows\MatchsViewer.xaml.cs">
+      <DependentUpon>MatchsViewer.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserControls\CtrlCaracLocked.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CtrlCarac.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlTournoiModif.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CtrlCaracsModif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlJediLocked.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CtrlJedi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlJedis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlMatchBis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CtrlStadeLocked.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\CtrlTournoi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlStades.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlMatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CtrlMatchs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CaracsViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GagnantPopUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\JedisViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\JediViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ScanPFC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TournoiChoix.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TournoiChoixSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TournoiSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TournoisViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TournoiViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\CtrlJedi.xaml.cs">
+      <DependentUpon>CtrlJedi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM Base\ViewModelBase.cs" />
+    <Compile Include="UserControls\CtrlStades.xaml.cs">
+      <DependentUpon>CtrlStades.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsModels\JedisViewModel.cs" />
+    <Compile Include="ViewsModels\JediViewModel.cs" />
+    <Compile Include="ViewsModels\StadesViewModel.cs" />
+    <Compile Include="ViewsModels\StadeViewModel.cs" />
+    <Compile Include="Windows\JedisViewer.xaml.cs">
+      <DependentUpon>JedisViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\JediViewer.xaml.cs">
+      <DependentUpon>JediViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\CtrlStade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\StadesViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MatchsViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{d895e23c-f912-4450-8915-5a42aa253699}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
+      <Project>{863f1dde-0005-4fd1-a933-f3e2a2d3160f}</Project>
+      <Name>EntitiesLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\login_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Font\Starjedi.ttf" />
+    <None Include="Resources\Jedis\yoda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\darthmaul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\darthvador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\obiwan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\quigon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\luke.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\dooku.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jedis\palpatine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\main_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stades\imperial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stades\cyberia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stades\drake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Stades\sandstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\cursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jeu\pierre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jeu\feuille.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jeu\ciseaux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Jeu\yoda.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

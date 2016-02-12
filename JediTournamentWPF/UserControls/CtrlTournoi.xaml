@@ -1,0 +1,126 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             xmlns:JediTournamentWPF="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.CtrlTournoi"
+             mc:Ignorable="d" Width="Auto" Height="Auto">
+
+    <StackPanel Orientation="Vertical">
+        <Grid Name="MainGrid1" Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition Width="600"/>
+            </Grid.ColumnDefinitions>
+
+            <JediTournamentWPF:CtrlMatchBis x:Name="match1" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[0]}"  Width="600" Grid.Column="0"/>
+            <JediTournamentWPF:CtrlMatchBis x:Name="match2" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[1]}"  Width="600" Grid.Column="1"/>
+            <JediTournamentWPF:CtrlMatchBis x:Name="match3" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[2]}"  Width="600" Grid.Column="2"/>
+            <JediTournamentWPF:CtrlMatchBis x:Name="match4" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[3]}"  Width="600" Grid.Column="3"/>
+        </Grid>
+        
+        <Grid x:Name="MainGrid2" Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1200"/>
+                <ColumnDefinition Width="1200"/>
+            </Grid.ColumnDefinitions>
+
+            <Line
+            		X1="200" Y1="0"
+            		X2="200" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="200" Y1="397.5"
+            		X2="300" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="950" Y1="397.55"
+            		X2="1050" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="1050" Y1="0"
+            		X2="1050" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="200" Y1="0"
+            		X2="200" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="1"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="200" Y1="397.5"
+            		X2="300" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="1"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="950" Y1="397.55"
+            		X2="1050" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="1"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="1050" Y1="0"
+            		X2="1050" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="1"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <JediTournamentWPF:CtrlMatchBis x:Name="match5" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[4]}" Width="600" Grid.Column="0" Loaded="match5_Loaded"/>
+            <JediTournamentWPF:CtrlMatchBis x:Name="match6" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[5]}" Width="600" Grid.Column="1"/>
+        </Grid>
+        
+        <Grid x:Name="MainGrid3" Height="Auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2400"/>
+            </Grid.ColumnDefinitions>
+
+            <Line
+            		X1="800" Y1="0"
+            		X2="800" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="800" Y1="397.5"
+            		X2="900" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="1650" Y1="397.5"
+            		X2="1550" Y2="397.5"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <Line
+            		X1="1650" Y1="0"
+            		X2="1650" Y2="400"
+            		StrokeThickness="5"
+            		Grid.Column="0"
+            		Stroke="{StaticResource MainColor}"/>
+
+            <JediTournamentWPF:CtrlMatchBis x:Name="match7" HorizontalAlignment="Center" VerticalAlignment="Top" DataContext="{Binding Matchs[6]}" Width="600" Grid.Column="0"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

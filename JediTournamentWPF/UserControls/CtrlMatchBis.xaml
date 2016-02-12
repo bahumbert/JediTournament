@@ -1,0 +1,23 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             xmlns:JediTournamentWPF="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.CtrlMatchBis"
+             mc:Ignorable="d" d:DesignWidth="600" Height="500">
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="260"/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition SharedSizeGroup="C1"/>
+            <ColumnDefinition SharedSizeGroup="C2"/>
+        </Grid.ColumnDefinitions>
+
+        <JediTournamentWPF:CtrlStadeLocked x:Name="ctrlStade" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" DataContext="{Binding Path=Stade}" Width="400" Margin="104,0,96,0"/>
+        <JediTournamentWPF:CtrlJediLocked x:Name="ctrlJedi1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" DataContext="{Binding Path=Jedi1}" Width="300"/>
+        <JediTournamentWPF:CtrlJediLocked x:Name="ctrlJedi2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" DataContext="{Binding Path=Jedi2}"  Width="300"/>
+    </Grid>
+</UserControl>

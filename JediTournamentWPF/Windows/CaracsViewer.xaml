@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JediTournamentWPF.Windows"
+        ResizeMode="NoResize"  
+        xmlns:UserControls="clr-namespace:JediTournamentWPF" x:Class="JediTournamentWPF.Windows.CaracsViewer"
+        mc:Ignorable="d"
+        Title="Gestionnaire de Modification des Caractéristiques" Height="446" Width="466" Icon="{StaticResource AppIcon}" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Window.Background>
+        <ImageBrush ImageSource="{StaticResource MainBackground}"/>
+    </Window.Background>
+    <Grid>
+        <UserControls:CtrlCaracsModif x:Name="caracsModifController" HorizontalAlignment="Left" VerticalAlignment="Top" Height="410" Width="450"/>
+    </Grid>
+</Window>

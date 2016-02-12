@@ -1,0 +1,7 @@
+Pour utiliser le projet avec les resouces fournies dans le dossier JediTournamentWPF\Resources
+Il suffit d'avoir le dossier placé à côté de l'exécutable. Dans le cas d'une utilisation depuis Visual Studio
+il est nécessaire de créer un lien symbolique dans le dossier de sortie de compilation qui pointe vers le dossier des
+ressources du projet.
+
+Exemple : (Se placer dans le dossier de sortie de compilation)
+> mklink /d Resources C:\VotreCheminIci\JediTournamentWPF\Resources

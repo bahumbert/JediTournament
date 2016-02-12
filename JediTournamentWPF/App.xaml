@@ -1,0 +1,13 @@
+﻿<Application x:Class="JediTournamentWPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:JediTournamentWPF"
+             StartupUri="Windows/Login.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="AppIcon" UriSource="/JediTournamentWPF;component/Resources/icon.png" />
+        <BitmapImage x:Key="MainBackground" UriSource="/JediTournamentWPF;component/Resources/main_background.jpg" />
+        <SolidColorBrush x:Key="MainColor">#FFE8D303</SolidColorBrush>
+        <SolidColorBrush x:Key="BorderMainColor">DimGray</SolidColorBrush>
+        <FontFamily x:Key="MainFont">/JediTournamentWPF;component/Resources/Font/#Star Jedi</FontFamily>
+    </Application.Resources>
+</Application>
