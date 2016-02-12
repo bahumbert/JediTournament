@@ -273,7 +273,94 @@ namespace BusinessLayer
             /*********** SCRIPT DE CREATION DE LA BDD (ET RESET) **********************/
 
 
-            /* Avant de reset il peut être utile d'exécuter la commande "DBCC CHECKIDENT (table, RESEED, 0);" sur chaque table pour reset les IDs */
+            /* Avant de reset il faut exécuter la commande "DBCC CHECKIDENT (table, RESEED, 0);" sur la table des caracs pour reset l'ID */
+
+            /* 
+CREATE TABLE [dbo].[jedi] (
+    [id]     INT           IDENTITY (1, 1) NOT NULL,
+    [nom]    VARCHAR (50)  NOT NULL,
+    [isSith] BIT           NOT NULL,
+    [image]  VARCHAR (150) NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+CREATE TABLE [dbo].[caracteristique] (
+    [id]         INT          IDENTITY (1, 1) NOT NULL,
+    [nom]        VARCHAR (50) NOT NULL,
+    [definition] VARCHAR (7)  NOT NULL,
+    [type]       VARCHAR (5)  NOT NULL,
+    [valeur]     INT          NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+CREATE TABLE [dbo].[carac_jedi] (
+    [id_jedi]  INT NOT NULL,
+    [id_carac] INT NOT NULL,
+    CONSTRAINT [PK_carac_jedi] PRIMARY KEY CLUSTERED ([id_jedi] ASC, [id_carac] ASC),
+    FOREIGN KEY ([id_jedi]) REFERENCES [dbo].[jedi] ([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([id_carac]) REFERENCES [dbo].[caracteristique] ([id]) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE [dbo].[stade] (
+    [id]       INT           IDENTITY (1, 1) NOT NULL,
+    [nom]      VARCHAR (50)  NOT NULL,
+    [nbPlaces] INT           NOT NULL,
+    [planete]  VARCHAR (50)  NOT NULL,
+    [image]    VARCHAR (150) NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+CREATE TABLE [dbo].[carac_stade] (
+    [id_stade] INT NOT NULL,
+    [id_carac] INT NOT NULL,
+    CONSTRAINT [PK_carac_stade] PRIMARY KEY CLUSTERED ([id_stade] ASC, [id_carac] ASC),
+    FOREIGN KEY ([id_stade]) REFERENCES [dbo].[stade] ([id]) ON DELETE CASCADE,
+    FOREIGN KEY ([id_carac]) REFERENCES [dbo].[caracteristique] ([id]) ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE [dbo].[tournoi] (
+    [id]  INT          IDENTITY (1, 1) NOT NULL,
+    [nom] VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+
+
+
+CREATE TABLE [dbo].[match] (
+    [id]           INT          IDENTITY (1, 1) NOT NULL,
+    [id_vainqueur] INT          NULL,
+    [id_jedi1]     INT          NULL,
+    [id_jedi2]     INT          NULL,
+    [phaseTournoi] VARCHAR (50) NOT NULL,
+    [id_tournoi]   INT          NULL,
+    [id_stade]     INT          NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC),
+    FOREIGN KEY ([id_vainqueur]) REFERENCES [dbo].[jedi] ([id]),
+    FOREIGN KEY ([id_jedi1]) REFERENCES [dbo].[jedi] ([id]),
+    FOREIGN KEY ([id_jedi2]) REFERENCES [dbo].[jedi] ([id]),
+    FOREIGN KEY ([id_tournoi]) REFERENCES [dbo].[tournoi] ([id]),
+    FOREIGN KEY ([id_stade]) REFERENCES [dbo].[stade] ([id])
+);
+
+
+
+CREATE TABLE [dbo].[utilisateur] (
+    [nom]      VARCHAR (50)  NOT NULL,
+    [prenom]   VARCHAR (50)  NOT NULL,
+    [login]    VARCHAR (50)  NOT NULL,
+    [password] VARCHAR (150) NOT NULL,
+    PRIMARY KEY CLUSTERED ([login] ASC)
+);
+
+*/
+
 
 
             /* Supression */

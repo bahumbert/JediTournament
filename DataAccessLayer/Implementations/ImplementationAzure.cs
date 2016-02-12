@@ -15,7 +15,7 @@ namespace DataAccessLayer.Implementations
         /// <summary>
         /// Chaine de connexion.
         /// </summary>
-        private string m_connexionString = "Data Source = teamcinqfoisdeux.database.windows.net; Initial Catalog = JediTournament; User ID = teamadmin; Password = Team5fois2";
+        private string m_connexionString = "Data Source=humduj-webservices.database.windows.net;Initial Catalog=bdd_hum_duj;User ID=webservice;Password=Thisisagoodpassword1";
 
         /// <summary>
         /// Constructeur.

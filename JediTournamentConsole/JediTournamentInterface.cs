@@ -91,7 +91,7 @@ namespace JediTournamentConsole
                     CreateDataBase();
                     break;*/
                 /*case ConsoleKey.Z:
-                    addUser();
+                    CreateDataBase();
                     break;*/
             }
         }
