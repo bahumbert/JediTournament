@@ -273,7 +273,7 @@ namespace BusinessLayer
             /*********** SCRIPT DE CREATION DE LA BDD (ET RESET) **********************/
 
 
-            /* Avant de reset il faut exécuter la commande "DBCC CHECKIDENT (table, RESEED, 0);" sur la table des caracs pour reset l'ID */
+            /* Avant de reset il faut exécuter la commande "DBCC CHECKIDENT (table, RESEED, 0);" sur toutes les tables pour reset les ID */
 
             /* 
 CREATE TABLE [dbo].[jedi] (
@@ -428,26 +428,30 @@ CREATE TABLE [dbo].[utilisateur] (
 
              List<Jedi> listJedis = new List<Jedi>();
 
-             // Caractéristiques éventuelles des jedis
-             List<Caracteristique> caracsDarthVador = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 7 || c.ID == 11)).ToList();
-             List<Caracteristique> caracsDarthMaul = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 10)).ToList();
-             List<Caracteristique> caracsLukeS = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 4 || c.ID == 8)).ToList();
-             List<Caracteristique> caracsYoda = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 6 || c.ID == 9 || c.ID == 11)).ToList();
-             List<Caracteristique> caracsObiwan = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 5 || c.ID == 8)).ToList();
+            // Caractéristiques éventuelles des jedis
+            List<Caracteristique> caracsDarthVador = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 7 || c.ID == 4 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsDarthMaul = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 4 || c.ID == 7 || c.ID == 10)).ToList();
+            List<Caracteristique> caracsLukeS = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 4 || c.ID == 8 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsYoda = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 5 || c.ID == 9 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsObiwan = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 6 || c.ID == 8 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsQuiGon = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 5 || c.ID == 7 || c.ID == 10)).ToList();
+            List<Caracteristique> caracsPalpat = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 5 || c.ID == 9 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsDooku = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 5 || c.ID == 7 || c.ID == 10)).ToList();
 
-             // Crée la liste des jedis
-             // TODO trouver une manière plus élégante de charger les images en relatif
 
-             listJedis.Add(new Jedi(1, "Darth Vador", true, caracsDarthVador, "\\Resources\\Jedis\\darthvador.png"));
-             listJedis.Add(new Jedi(2, "Count Dooku", true, null, "\\Resources\\Jedis\\dooku.png"));
-             listJedis.Add(new Jedi(3, "Darth Maul", true, caracsDarthMaul, "\\Resources\\Jedis\\darthmaul.png"));
-             listJedis.Add(new Jedi(4, "Luke Skywalker", false, caracsLukeS, "\\Resources\\Jedis\\luke.png"));
-             listJedis.Add(new Jedi(5, "Yoda", false, caracsYoda, "\\Resources\\Jedis\\yoda.png"));
-             listJedis.Add(new Jedi(6, "Qui-Gon Jinn", false, null, "\\Resources\\Jedis\\quigon.png"));
-             listJedis.Add(new Jedi(7, "Obi-Wan Kenobi", false, caracsObiwan, "\\Resources\\Jedis\\obiwan.png"));
-             listJedis.Add(new Jedi(8, "Emperor Palpatine", true, null, "\\Resources\\Jedis\\palpatine.png"));
+            // Crée la liste des jedis
+            // TODO trouver une manière plus élégante de charger les images en relatif
 
-             foreach(Jedi j in listJedis)
+            listJedis.Add(new Jedi(1, "Darth Vador", true, caracsDarthVador, "\\Resources\\Jedis\\darthvador.png"));
+            listJedis.Add(new Jedi(2, "Count Dooku", true, caracsDooku, "\\Resources\\Jedis\\dooku.png"));
+            listJedis.Add(new Jedi(3, "Darth Maul", true, caracsDarthMaul, "\\Resources\\Jedis\\darthmaul.png"));
+            listJedis.Add(new Jedi(4, "Luke Skywalker", false, caracsLukeS, "\\Resources\\Jedis\\luke.png"));
+            listJedis.Add(new Jedi(5, "Yoda", false, caracsYoda, "\\Resources\\Jeu\\yoda.png"));
+            listJedis.Add(new Jedi(6, "Qui-Gon Jinn", false, caracsQuiGon, "\\Resources\\Jedis\\quigon.png"));
+            listJedis.Add(new Jedi(7, "Obi-Wan Kenobi", false, caracsObiwan, "\\Resources\\Jedis\\obiwan.png"));
+            listJedis.Add(new Jedi(8, "Emperor Palpatine", true, caracsPalpat, "\\Resources\\Jedis\\palpatine.png"));
+
+            foreach (Jedi j in listJedis)
              {
                  m_data.addJedi(j);
              }
@@ -455,14 +459,15 @@ CREATE TABLE [dbo].[utilisateur] (
 
              List<Stade> listStades = new List<Stade>();
 
-             // Caractéristiques éventuelles des stades
-             List<Caracteristique> caracsTatooine = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && s.ID == 13).ToList();
-             List<Caracteristique> caracsHoth = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && (s.ID == 12 || s.ID == 13)).ToList();
-             List<Caracteristique> caracsCoruscant = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && s.ID == 14).ToList();
 
-             // Crée la liste des stades
+            // Caractéristiques éventuelles des stades
+            List<Caracteristique> caracsJakku = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && s.ID == 13).ToList();
+            List<Caracteristique> caracsTatooine = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && s.ID == 13).ToList();
+            List<Caracteristique> caracsHoth = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && (s.ID == 12 || s.ID == 13)).ToList();
+            List<Caracteristique> caracsCoruscant = listCarac.Where(s => s.Type == ETypeCaracteristique.Stade && s.ID == 14).ToList();
+            // Crée la liste des stades
 
-             listStades.Add(new Stade(1, "Le Drake", 150, "Jakku", null, "\\Resources\\Stades\\drake.png"));
+            listStades.Add(new Stade(1, "Le Drake", 150, "Jakku", null, "\\Resources\\Stades\\drake.png"));
              listStades.Add(new Stade(2, "Le Sandstorm", 2000, "Tatooine", caracsTatooine, "\\Resources\\Stades\\sandstorm.png"));
              listStades.Add(new Stade(3, "Le Cyberia", 10000, "Hoth", caracsHoth, "\\Resources\\Stades\\cyberia.png"));
              listStades.Add(new Stade(4, "L''Impérial", 110000, "Coruscant", caracsCoruscant, "\\Resources\\Stades\\imperial.png"));

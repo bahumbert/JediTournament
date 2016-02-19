@@ -56,7 +56,7 @@ namespace JediTournamentConsole
             Console.WriteLine("3 - Afficher la liste des matchs (Sith Vs Sith et Stade >200 places).");
             Console.WriteLine("4 - Afficher la liste des siths.");
             Console.WriteLine("5 - Afficher la liste des jedis avec plus de 3 de force et 50 points de vie.");
-            //Console.WriteLine("6 - Créer ou Reset la BDD.");
+            /*Console.WriteLine("6 - Créer ou Reset la BDD.");*/
             Console.WriteLine("Q - Quitter.");
 
             Console.WriteLine("\nVotre choix : ");
