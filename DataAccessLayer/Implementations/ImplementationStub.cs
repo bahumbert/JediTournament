@@ -61,13 +61,14 @@ namespace DataAccessLayer.Implementations
             List<Caracteristique> caracsObiwan = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 6 || c.ID == 8 || c.ID == 11)).ToList();
             List<Caracteristique> caracsQuiGon = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 2 || c.ID == 5 || c.ID == 7 || c.ID == 10)).ToList();
             List<Caracteristique> caracsPalpat = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 5 || c.ID == 9 || c.ID == 11)).ToList();
+            List<Caracteristique> caracsDooku = listCarac.Where(c => c.Type == ETypeCaracteristique.Jedi && (c.ID == 3 || c.ID == 5 || c.ID == 7 || c.ID == 10)).ToList();
 
 
 
             // Crée la liste des jedis
             // TODO trouver une manière plus élégante de charger les images en relatif
             listJedi.Add(new Jedi(1, "Darth Vador", true, caracsDarthVador, "\\Resources\\Jedis\\darthvador.png"));
-            listJedi.Add(new Jedi(2, "Count Dooku", true, null, "\\Resources\\Jedis\\dooku.png"));
+            listJedi.Add(new Jedi(2, "Count Dooku", true, caracsDooku, "\\Resources\\Jedis\\dooku.png"));
             listJedi.Add(new Jedi(3, "Darth Maul", true, caracsDarthMaul, "\\Resources\\Jedis\\darthmaul.png"));
             listJedi.Add(new Jedi(4, "Luke Skywalker", false, caracsLukeS, "\\Resources\\Jedis\\luke.png"));
             listJedi.Add(new Jedi(5, "Yoda", false, caracsYoda, "\\Resources\\Jeu\\yoda.png"));
