@@ -12,17 +12,5 @@ namespace JediWebApplication.Controllers
         {
             return View();
         }
-        public ActionResult GestionTournois()
-        {
-            return View();
-        }
-        public ActionResult GestionMatchs()
-        {
-            return View();
-        }
-        public ActionResult GestionCaractéristiques()
-        {
-            return View();
-        }
     }
 }

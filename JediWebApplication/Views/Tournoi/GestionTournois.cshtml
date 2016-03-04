@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "GestionTournois";
+}
+
+<h2>GestionTournois</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+        </tr>
+    </thead>
+    @foreach (var tournoi in ViewBag.Tournois)
+    {
+        <tbody>
+            <tr>
+                <td>@tournoi.Nom</td>
+            </tr>
+        </tbody>
+    }
+</table>

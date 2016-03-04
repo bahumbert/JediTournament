@@ -31,6 +31,12 @@
   <wsdl:message name="IService1_GetTournois_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTournoisResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiques_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiques" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiques_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetCaracteristiquesByJedi_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCaracteristiquesByJedi" />
   </wsdl:message>
@@ -59,6 +65,10 @@
     <wsdl:operation name="GetTournois">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTournois" message="tns:IService1_GetTournois_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTournoisResponse" message="tns:IService1_GetTournois_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiques">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiques" message="tns:IService1_GetCaracteristiques_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesResponse" message="tns:IService1_GetCaracteristiques_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCaracteristiquesByJedi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesByJedi" message="tns:IService1_GetCaracteristiquesByJedi_InputMessage" />
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetTournois">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTournois" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiques">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiques" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

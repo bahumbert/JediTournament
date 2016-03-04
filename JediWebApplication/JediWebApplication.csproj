@@ -213,7 +213,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\Home\CaractéristiqueController.cs" />
     <Compile Include="Views\Home\JediController.cs" />
+    <Compile Include="Views\Home\MatchController.cs" />
+    <Compile Include="Views\Home\StadeController.cs" />
+    <Compile Include="Views\Home\TournoiController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -295,9 +299,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\GestionTournois.cshtml" />
-    <Content Include="Views\Home\GestionMatchs.cshtml" />
-    <Content Include="Views\Home\GestionCaractéristiques.cshtml" />
     <None Include="Service References\ServiceReference1\Service1.wsdl" />
     <None Include="Service References\ServiceReference1\Service1.xsd">
       <SubType>Designer</SubType>
@@ -309,6 +310,10 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Jedi\GestionJedis.cshtml" />
+    <Content Include="Views\Tournoi\GestionTournois.cshtml" />
+    <Content Include="Views\Match\GestionMatchs.cshtml" />
+    <Content Include="Views\Caractéristique\GestionCaractéristiques.cshtml" />
+    <Content Include="Views\Stade\GestionStades.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

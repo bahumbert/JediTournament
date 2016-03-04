@@ -410,6 +410,12 @@ namespace JediWebApplication.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTournois", ReplyAction="http://tempuri.org/IService1/GetTournoisResponse")]
         System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesByJedi", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesByJediResponse")]
         JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j);
         
@@ -480,6 +486,14 @@ namespace JediWebApplication.ServiceReference1 {
         
         public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync() {
             return base.Channel.GetTournoisAsync();
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques() {
+            return base.Channel.GetCaracteristiques();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync() {
+            return base.Channel.GetCaracteristiquesAsync();
         }
         
         public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j) {
