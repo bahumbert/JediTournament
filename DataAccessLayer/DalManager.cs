@@ -29,7 +29,7 @@ namespace DataAccessLayer
         /// </summary>
         private DalManager()
         {
-            m_bridge = new ImplementationAzure();
+            m_bridge = new ImplementationStub();
         }
 
         /// <summary>

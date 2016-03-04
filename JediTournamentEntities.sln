@@ -15,9 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Test\Tests.csproj"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{3312C291-585A-4955-B047-E008B390C1BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediWebApplication", "JediWebApplication\JediWebApplication.csproj", "{547602F7-F3B7-48A9-B2FF-269893ACCBBB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediWebService", "JediWebService\JediWebService.csproj", "{8D9ECE1D-602A-4B47-B679-181C6437F0BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JediWebApplication", "JediWebApplication\JediWebApplication.csproj", "{21703EFD-988F-4911-9DF7-C9A91CFCF595}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8D9ECE1D-602A-4B47-B679-181C6437F0BD} = {8D9ECE1D-602A-4B47-B679-181C6437F0BD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +52,14 @@ Global
 		{3312C291-585A-4955-B047-E008B390C1BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3312C291-585A-4955-B047-E008B390C1BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3312C291-585A-4955-B047-E008B390C1BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{547602F7-F3B7-48A9-B2FF-269893ACCBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{547602F7-F3B7-48A9-B2FF-269893ACCBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{547602F7-F3B7-48A9-B2FF-269893ACCBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{547602F7-F3B7-48A9-B2FF-269893ACCBBB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D9ECE1D-602A-4B47-B679-181C6437F0BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D9ECE1D-602A-4B47-B679-181C6437F0BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D9ECE1D-602A-4B47-B679-181C6437F0BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D9ECE1D-602A-4B47-B679-181C6437F0BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21703EFD-988F-4911-9DF7-C9A91CFCF595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21703EFD-988F-4911-9DF7-C9A91CFCF595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21703EFD-988F-4911-9DF7-C9A91CFCF595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21703EFD-988F-4911-9DF7-C9A91CFCF595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

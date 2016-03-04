@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/JediWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/JediWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfJediContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JediContract" nillable="true" type="tns:JediContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJediContract" nillable="true" type="tns:ArrayOfJediContract" />
+  <xs:complexType name="JediContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+      <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JediContract" nillable="true" type="tns:JediContract" />
+  <xs:complexType name="ArrayOfCaracteristiqueContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CaracteristiqueContract" nillable="true" type="tns:CaracteristiqueContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCaracteristiqueContract" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+  <xs:complexType name="CaracteristiqueContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valeur" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CaracteristiqueContract" nillable="true" type="tns:CaracteristiqueContract" />
+  <xs:complexType name="ArrayOfStadeContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StadeContract" nillable="true" type="tns:StadeContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStadeContract" nillable="true" type="tns:ArrayOfStadeContract" />
+  <xs:complexType name="StadeContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NbPlace" type="xs:int" />
+      <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StadeContract" nillable="true" type="tns:StadeContract" />
+  <xs:complexType name="ArrayOfMatchContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatchContract" nillable="true" type="tns:MatchContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatchContract" nillable="true" type="tns:ArrayOfMatchContract" />
+  <xs:complexType name="MatchContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdJediVainqueur" type="xs:int" />
+      <xs:element minOccurs="0" name="Jedi1" nillable="true" type="tns:JediContract" />
+      <xs:element minOccurs="0" name="Jedi2" nillable="true" type="tns:JediContract" />
+      <xs:element minOccurs="0" name="Stade" nillable="true" type="tns:StadeContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatchContract" nillable="true" type="tns:MatchContract" />
+  <xs:complexType name="ArrayOfTournoiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TournoiContract" nillable="true" type="tns:TournoiContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTournoiContract" nillable="true" type="tns:ArrayOfTournoiContract" />
+  <xs:complexType name="TournoiContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Matchs" nillable="true" type="tns:ArrayOfMatchContract" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TournoiContract" nillable="true" type="tns:TournoiContract" />
+</xs:schema>
