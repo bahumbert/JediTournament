@@ -111,6 +111,26 @@ namespace JediWebService
             }
             return list;
         }
+        public List<CaracteristiqueContract> GetCaracteristiques()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+            JediTournamentManager jtm = new JediTournamentManager();
+
+            listC = jtm.getAllJediCaracs();
+
+            foreach (Caracteristique c in jtm.getAllStadeCaracs())
+            {
+                listC.Add(c);
+            }
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Valeur));
+            }
+
+            return listCarac;
+        }
         public List<CaracteristiqueContract> GetCaracteristiquesByJedi(JediContract j)
         {
             List<CaracteristiqueContract> list = new List<CaracteristiqueContract>();

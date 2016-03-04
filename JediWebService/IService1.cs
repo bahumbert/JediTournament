@@ -24,6 +24,9 @@ namespace JediWebService
         List<TournoiContract> GetTournois();
 
         [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiques();
+
+        [OperationContract]
         List<CaracteristiqueContract> GetCaracteristiquesByJedi(JediContract j);
 
         [OperationContract]
@@ -144,6 +147,17 @@ namespace JediWebService
     {
         string nom;
         int valeur;
+
+        public CaracteristiqueContract(string nom, int valeur)
+        {
+            this.nom = nom;
+            this.valeur = valeur;
+        }
+
+        public CaracteristiqueContract()
+        {
+
+        }
 
         [DataMember]
         public string Nom
