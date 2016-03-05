@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,26 +12,75 @@ namespace JediWebService
     [ServiceContract]
     public interface IService1
     {
+        #region "Liés aux Jedis"
         [OperationContract]
         List<JediContract> GetJedis();
-
-        [OperationContract]
-        List<StadeContract> GetStades();
-
-        [OperationContract]
-        List<MatchContract> GetMatchs();
-
-        [OperationContract]
-        List<TournoiContract> GetTournois();
-
-        [OperationContract]
-        List<CaracteristiqueContract> GetCaracteristiques();
 
         [OperationContract]
         List<CaracteristiqueContract> GetCaracteristiquesByJedi(JediContract j);
 
         [OperationContract]
         void AddJedi(string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+
+        [OperationContract]
+        void modJedi(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+
+        [OperationContract]
+        void delJedi(string nom);
+            #endregion
+        #region "Liés aux Stades"
+        [OperationContract]
+        List<StadeContract> GetStades();
+
+       /* [OperationContract]
+        void AddStade(string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+
+        [OperationContract]
+        void modStade(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+
+        [OperationContract]
+        void delStade(string nom);*/
+        #endregion
+        #region "Liés aux Matchs"
+        [OperationContract]
+        List<MatchContract> GetMatchs();
+
+        [OperationContract]
+        void AddMatch(int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec);
+
+        [OperationContract]
+        void modMatch(int id, int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec, EPhaseTournoi phase);
+
+        [OperationContract]
+        void delMatch(int id);
+        #endregion
+        #region "Liés aux Tournois"
+        [OperationContract]
+        List<TournoiContract> GetTournois();
+
+        [OperationContract]
+        void AddTournoi(string nom, List<MatchContract> listMatchc);
+
+        [OperationContract]
+        void modTournoi(int id, string nom, List<MatchContract> listMatchc);
+
+        [OperationContract]
+        void delTournoi(string nom);
+        #endregion
+        #region "Liés aux Caracteristiques"
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiques();
+
+        [OperationContract]
+        void AddCarac(string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/);
+
+        [OperationContract]
+        void modCarac(int id, string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/);
+
+        [OperationContract]
+        void delCarac(int id);
+        #endregion
+
     }
     [DataContract]
     public class JediContract
@@ -38,6 +88,15 @@ namespace JediWebService
         string nom;
         List<CaracteristiqueContract> caracteristiques;
         bool isSith;
+
+        public JediContract(string nom, List<CaracteristiqueContract> caracteristiques, bool isSith)
+        {
+            this.nom = nom;
+            this.caracteristiques = caracteristiques;
+            this.isSith = isSith;
+        }
+
+        public JediContract(){}
 
         [DataMember]
         public List<CaracteristiqueContract> Caracteristiques
@@ -64,6 +123,15 @@ namespace JediWebService
     {
         int nbPlace;
         string planete;
+
+        public StadeContract() { }
+
+        public StadeContract(int nbPlace, string planete)
+        {
+            this.nbPlace = nbPlace;
+            this.planete = planete;
+        }
+
         [DataMember]
         public int NbPlace
         {
@@ -86,6 +154,17 @@ namespace JediWebService
         JediContract jedi1;
         JediContract jedi2;
         StadeContract stade;
+
+        public MatchContract() { }
+
+        public MatchContract(int id, int idJediVainqueur, JediContract jedi1, JediContract jedi2, StadeContract stade)
+        {
+            this.id = id;
+            this.idJediVainqueur = idJediVainqueur;
+            this.jedi1 = jedi1;
+            this.jedi2 = jedi2;
+            this.stade = stade;
+        }
 
         [DataMember]
         public int Id
@@ -127,6 +206,14 @@ namespace JediWebService
     {
         List<MatchContract> matchs;
         string nom;
+
+        public TournoiContract() { }
+
+        public TournoiContract(List<MatchContract> matchs, string nom)
+        {
+            this.matchs = matchs;
+            this.nom = nom;
+        }
 
         [DataMember]
         public List<MatchContract> Matchs

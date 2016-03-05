@@ -28,6 +28,13 @@ namespace EntitiesLayer
             Image = imagePath;
         }
 
+        public Stade():base(0)
+        {
+            Nom = "test";
+            NbPlaces = 10;
+            Planete = "Void";
+        }
+
         public override string ToString()
         {
             return Nom + " (" + Planete + ")";
