@@ -30,27 +30,16 @@ namespace JediWebService
             listjedi = jtm.getAllJedis();
             foreach(Jedi j in listjedi)
             {
-                JediContract jedi = new JediContract();
-                jedi.Nom = j.Nom;
-                jedi.IsSith = j.IsSith;
-                jedi.Caracteristiques = new List<CaracteristiqueContract>();
-                CaracteristiqueContract force = new CaracteristiqueContract();
-                CaracteristiqueContract sante = new CaracteristiqueContract();
-                CaracteristiqueContract defense = new CaracteristiqueContract();
-                CaracteristiqueContract chance = new CaracteristiqueContract();
 
-                force.Nom = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Force).Nom;
-                force.Valeur = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Force).Valeur;
-                jedi.Caracteristiques.Add(force);
-                chance.Nom = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Chance).Nom;
-                chance.Valeur = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Chance).Valeur;
-                jedi.Caracteristiques.Add(chance);
-                defense.Nom = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Defense).Nom;
-                defense.Valeur = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Defense).Valeur;
-                jedi.Caracteristiques.Add(defense);
-                sante.Nom = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Sante).Nom;
-                sante.Valeur = j.Caracteristiques.Find(x => x.Definition == EDefCaracteristique.Sante).Valeur;
-                jedi.Caracteristiques.Add(sante);
+                List<CaracteristiqueContract> listC = new List<CaracteristiqueContract>();
+
+                foreach (Caracteristique c in j.Caracteristiques)
+                {
+                    listC.Add(new CaracteristiqueContract(c.Nom,c.Valeur));
+                }
+
+                JediContract jedi = new JediContract(j.Nom,listC,j.IsSith);
+
                 list.Add(jedi);
             }
             return list;
@@ -65,24 +54,35 @@ namespace JediWebService
             Jedi jedi = listjedi.Find(x => x.Nom == j.Nom);
             foreach (Caracteristique c in jedi.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract();
-                carac.Nom = c.Nom;
-                carac.Valeur = c.Valeur;
+                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Valeur);
                 list.Add(carac);
             }
             return list;
         }
+
         public void AddJedi(string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
         {
             List<Caracteristique> carac = new List<Caracteristique>();
-            Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
-            Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
-            Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
-            Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);
-            carac.Add(force2);
-            carac.Add(defense2);
-            carac.Add(chance2);
-            carac.Add(sante2);
+            if (force != null)
+            {
+                Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
+                carac.Add(force2);
+            }
+            if (chance != null)
+            {
+                Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
+                carac.Add(chance2);
+            }
+            if (sante != null)
+            {
+                Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
+                carac.Add(sante2);
+            }
+            if (defense != null)
+            {
+                Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);
+                carac.Add(defense2);
+            }
             Jedi jedi = new Jedi(0, nom, isSith, carac, "");
             jtm.addJedi(jedi);
         }
@@ -91,14 +91,26 @@ namespace JediWebService
         {
 
             List<Caracteristique> carac = new List<Caracteristique>();
-            Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
-            Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
-            Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
-            Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);
-            carac.Add(force2);
-            carac.Add(defense2);
-            carac.Add(chance2);
-            carac.Add(sante2);
+            if (force != null)
+            {
+                Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
+                carac.Add(force2);
+            }
+            if (chance != null)
+            {
+                Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
+                carac.Add(chance2);
+            }
+            if (sante != null)
+            {
+                Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
+                carac.Add(sante2);
+            }
+            if (defense != null)
+            {
+                Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);
+                carac.Add(defense2);
+            }
 
             List<Jedi> listJedi = jtm.getAllJedis();
 
@@ -128,13 +140,19 @@ namespace JediWebService
             liststade = jtm.getAllStades();
             foreach (Stade s in liststade)
             {
-                StadeContract stade = new StadeContract();
-                stade.NbPlace = s.NbPlaces;
-                stade.Planete = s.Planete;
+                List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+
+                foreach (Caracteristique c in s.Caracteristiques)
+                {
+                    listCarac.Add(new CaracteristiqueContract(c.Nom,c.Valeur));
+                }
+
+                StadeContract stade = new StadeContract(s.NbPlaces,s.Nom,s.Planete,listCarac);
                 list.Add(stade);
             }
             return list;
         }
+
         public List<CaracteristiqueContract> GetCaracteristiquesByStade(StadeContract s)
         {
             List<CaracteristiqueContract> list = new List<CaracteristiqueContract>();
@@ -144,60 +162,92 @@ namespace JediWebService
             Stade stade = listStade.Find(x => x.Planete == s.Planete);
             foreach (Caracteristique c in stade.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract();
-                carac.Nom = c.Nom;
-                carac.Valeur = c.Valeur;
+                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Valeur);
                 list.Add(carac);
             }
             return list;
         }
-        /*public void AddStade(int nbPlaces, string planete)
+
+        public void AddStade(int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
         {
-            /*List<Caracteristique> carac = new List<Caracteristique>();
-            Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
-            Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
-            Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
-            Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);*/
 
+            List<Caracteristique> carac = new List<Caracteristique>();
+            if (force != null)
+            {
+                Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Stade, force.Valeur);
+                carac.Add(force2);
+            }
+            if (chance != null)
+            {
+                Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Stade, chance.Valeur);
+                carac.Add(chance2);
+            }
+            if (sante != null)
+            {
+                Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Stade, sante.Valeur);
+                carac.Add(sante2);
+            }
+            if (defense != null)
+            {
+                Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Stade, defense.Valeur);
+                carac.Add(defense2);
+            }
 
-
-        /*  carac.Add(force2);
-          carac.Add(defense2);
-          carac.Add(chance2);
-          carac.Add(sante2);
-          Stade stade = new Stade();
-          stade.
-          jtm.addStade(stade);
+            Stade stade = new Stade(0,nom,nbPlaces, planete, carac,"");
+            jtm.addStade(stade);
       }
 
-      public void modJedi(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
+      public void modStade(int id, int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
       {
 
-          List<Caracteristique> carac = new List<Caracteristique>();
-          Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Jedi, force.Valeur);
-          Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Jedi, chance.Valeur);
-          Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Jedi, sante.Valeur);
-          Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Jedi, defense.Valeur);
-          carac.Add(force2);
-          carac.Add(defense2);
-          carac.Add(chance2);
-          carac.Add(sante2);
+            List<Caracteristique> carac = new List<Caracteristique>();
+            if (force != null)
+            {
+                Caracteristique force2 = new Caracteristique(1, force.Nom, EDefCaracteristique.Force, ETypeCaracteristique.Stade, force.Valeur);
+                carac.Add(force2);
+            }
+            if (chance != null)
+            {
+                Caracteristique chance2 = new Caracteristique(2, chance.Nom, EDefCaracteristique.Chance, ETypeCaracteristique.Stade, chance.Valeur);
+                carac.Add(chance2);
+            }
+            if (sante != null)
+            {
+                Caracteristique sante2 = new Caracteristique(3, sante.Nom, EDefCaracteristique.Sante, ETypeCaracteristique.Stade, sante.Valeur);
+                carac.Add(sante2);
+            }
+            if (defense != null)
+            {
+                Caracteristique defense2 = new Caracteristique(4, defense.Nom, EDefCaracteristique.Defense, ETypeCaracteristique.Stade, defense.Valeur);
+                carac.Add(defense2);
+            }
 
-          List<Jedi> listJedi = jtm.getAllJedis();
+            List<Stade> listStade = jtm.getAllStades();
 
-          Jedi jedi = listJedi.Find(j => j.ID == id);
+            Stade stade = listStade.Find(s => s.ID == id);
 
-          jedi.IsSith = isSith;
-          jedi.Caracteristiques = carac;
-          jtm.modJedi(jedi);
+            if (nbPlaces != 0)
+            {
+                stade.NbPlaces = nbPlaces;
+            }
+            if (nom != null)
+            {
+                stade.Nom = nom;
+            }
+            if (planete != null)
+            {
+                stade.Planete = planete;
+            }
+            stade.Caracteristiques = carac;
+            jtm.modStade(stade);
       }
 
-      public void delJedi(string nom)
+      public void delStade(string nom)
       {
-          List<Jedi> listJedi = jtm.getAllJedis();
-          Jedi jedi = listJedi.Find(j => j.Nom == nom);
-          jtm.delJedi(jedi);
-      }*/
+          List<Stade> listStade = jtm.getAllStades();
+          Stade stade = listStade.Find(s => s.Nom == nom);
+          jtm.delStade(stade);
+      }
 
         #endregion
         #region "Liés aux Matchs"
@@ -212,44 +262,39 @@ namespace JediWebService
             listmatch = jtm.getAllMatchs();
             foreach (Match m in listmatch)
             {
-                MatchContract match = new MatchContract();
-                match.Id = m.ID;
-                match.IdJediVainqueur = m.IdJediVainqueur;
-                match.Jedi1 = listJedi.Find(x => x.Nom == m.Jedi1.Nom);
-                match.Jedi2 = listJedi.Find(x => x.Nom == m.Jedi2.Nom);
-                match.Stade = listStade.Find(x => x.Planete == m.Stade.Planete);
+                MatchContract match = new MatchContract(m.ID,m.IdJediVainqueur, listJedi.Find(x => x.Nom == m.Jedi1.Nom), listJedi.Find(x => x.Nom == m.Jedi2.Nom), listStade.Find(x => x.Planete == m.Stade.Planete));
                 list.Add(match);
             }
             return list;
         }
 
-        public void AddMatch(int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec )
+        public void AddMatch(int idJediVainqueur, string nomJedi1, string nomJedi2, string nomStade)
         {
 
             List<Jedi> listJedi = jtm.getAllJedis();
 
-            Jedi jedi1 = listJedi.Find(j => j.Nom == jedic1.Nom);
-            Jedi jedi2 = listJedi.Find(j => j.Nom == jedic2.Nom);
+            Jedi jedi1 = listJedi.Find(j => j.Nom == nomJedi1);
+            Jedi jedi2 = listJedi.Find(j => j.Nom == nomJedi2);
 
             List<Stade> listStade = jtm.getAllStades();
 
-            Stade stade = listStade.Find(s => s.Planete == stadec.Planete);
+            Stade stade = listStade.Find(s => s.Planete == nomStade);
 
             Match match = new Match(0,jedi1,jedi2,EPhaseTournoi.QuartFinale,stade);
 
             jtm.addMatch(match);
         }
 
-        public void modMatch(int id, int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec, EPhaseTournoi phase)
+        public void modMatch(int id, int idJediVainqueur, string nomJedi1, string nomJedi2, string nomStade, EPhaseTournoi phase)
         {
             List<Jedi> listJedi = jtm.getAllJedis();
 
-            Jedi jedi1 = listJedi.Find(j => j.Nom == jedic1.Nom);
-            Jedi jedi2 = listJedi.Find(j => j.Nom == jedic2.Nom);
+            Jedi jedi1 = listJedi.Find(j => j.Nom == nomJedi1);
+            Jedi jedi2 = listJedi.Find(j => j.Nom == nomJedi2);
 
             List<Stade> listStade = jtm.getAllStades();
 
-            Stade stade = listStade.Find(s => s.Planete == stadec.Planete);
+            Stade stade = listStade.Find(s => s.Planete == nomStade);
 
             List<Match> listMatch = jtm.getAllMatchs();
 
@@ -396,15 +441,15 @@ namespace JediWebService
 
                 return listCarac;
             }
-        public void AddCarac(string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/)
+        public void AddCarac(string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type)
         {
 
-            Caracteristique carac = new Caracteristique(0, nom, definition,ETypeCaracteristique.Jedi, valeur);
+            Caracteristique carac = new Caracteristique(0, nom, definition,type, valeur);
 
             jtm.addCarac(carac);
         }
 
-        public void modCarac(int id, string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/)
+        public void modCarac(int id, string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type)
         {
             List<Caracteristique> listC = jtm.getAllJediCaracs();
 
@@ -421,7 +466,7 @@ namespace JediWebService
             }
             carac.Valeur = valeur;
             carac.Definition = definition;
-            carac.Type = ETypeCaracteristique.Jedi;
+            carac.Type = type;
 
             jtm.modCarac(carac);
         }

@@ -32,24 +32,24 @@ namespace JediWebService
         [OperationContract]
         List<StadeContract> GetStades();
 
-       /* [OperationContract]
-        void AddStade(string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+        [OperationContract]
+        void AddStade(int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
-        void modStade(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+        void modStade(int id, int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
-        void delStade(string nom);*/
+        void delStade(string nom);
         #endregion
         #region "Liés aux Matchs"
         [OperationContract]
         List<MatchContract> GetMatchs();
 
         [OperationContract]
-        void AddMatch(int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec);
+        void AddMatch(int idJediVainqueur, string jedic1, string jedic2, string stadec);
 
         [OperationContract]
-        void modMatch(int id, int idJediVainqueur, JediContract jedic1, JediContract jedic2, StadeContract stadec, EPhaseTournoi phase);
+        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, EPhaseTournoi phase);
 
         [OperationContract]
         void delMatch(int id);
@@ -72,10 +72,10 @@ namespace JediWebService
         List<CaracteristiqueContract> GetCaracteristiques();
 
         [OperationContract]
-        void AddCarac(string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/);
+        void AddCarac(string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type);
 
         [OperationContract]
-        void modCarac(int id, string nom, int valeur, EDefCaracteristique definition/*, ETypeCaracteristique type*/);
+        void modCarac(int id, string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type);
 
         [OperationContract]
         void delCarac(int id);
@@ -122,14 +122,18 @@ namespace JediWebService
     public class StadeContract
     {
         int nbPlace;
+        string nom;
         string planete;
+        List<CaracteristiqueContract> caracs;
 
         public StadeContract() { }
 
-        public StadeContract(int nbPlace, string planete)
+        public StadeContract(int nbPlace, string nom, string planete, List<CaracteristiqueContract> caracs)
         {
             this.nbPlace = nbPlace;
+            this.nom = nom;
             this.planete = planete;
+            this.caracs = caracs;
         }
 
         [DataMember]
@@ -140,10 +144,24 @@ namespace JediWebService
         }
 
         [DataMember]
+        public string Nom
+        {
+            get { return nom; }
+            set { nom = value; }
+        }
+
+        [DataMember]
         public string Planete
         {
             get { return planete; }
             set { planete = value; }
+        }
+
+        [DataMember]
+        public List<CaracteristiqueContract> Caracs
+        {
+            get { return caracs; }
+            set { caracs = value; }
         }
     }
     [DataContract]
