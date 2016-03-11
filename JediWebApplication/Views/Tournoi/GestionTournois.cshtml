@@ -4,19 +4,25 @@
 }
 
 <h2>GestionTournois</h2>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nom</th>
-        </tr>
-    </thead>
-    @foreach (var tournoi in ViewBag.Tournois)
-    {
-        <tbody>
-            <tr>
-                <td>@tournoi.Nom</td>
-            </tr>
-        </tbody>
-    }
-</table>
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table tableau">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            @foreach (var tournoi in ViewBag.Tournois)
+            {
+                <tbody>
+                    <tr>
+                        <td>@tournoi.Nom</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>

@@ -1427,12 +1427,12 @@ th {
   padding: 8px;
   line-height: 1.428571429;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid darkorange;
 }
 
 .table thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid darkorange;
 }
 
 .table caption + thead tr:first-child th,
@@ -1445,7 +1445,7 @@ th {
 }
 
 .table tbody + tbody {
-  border-top: 2px solid #dddddd;
+  border-top: 2px solid darkorange;
 }
 
 .table .table {
@@ -3244,7 +3244,7 @@ input[type="button"].btn-block {
   margin: 2px 0 0;
   font-size: 14px;
   list-style: none;
-  background-color: #ffffff;
+  background-color: black;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -3271,15 +3271,17 @@ input[type="button"].btn-block {
   clear: both;
   font-weight: normal;
   line-height: 1.428571429;
-  color: #333333;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdcb09), to(#f68c1e));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   white-space: nowrap;
 }
 
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-  color: #ffffff;
+  color: black;
   text-decoration: none;
-  background-color: #428bca;
+  background-color: #f68c1e;
 }
 
 .dropdown-menu > .active > a,
@@ -4501,12 +4503,14 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #f68c1e;
+  border-color: #f68c1e;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdcb09), to(#f68c1e));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar-inverse .navbar-brand:hover,
@@ -4516,11 +4520,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fdcb09), to(#f68c1e));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  color: #f68c1e;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fdcb09), to(#f68c1e));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
