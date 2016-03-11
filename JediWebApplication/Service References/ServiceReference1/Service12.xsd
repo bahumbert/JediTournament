@@ -9,6 +9,7 @@
   <xs:complexType name="JediContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="Caracteristiques" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="IsSith" type="xs:boolean" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -35,7 +36,9 @@
   <xs:element name="ArrayOfStadeContract" nillable="true" type="tns:ArrayOfStadeContract" />
   <xs:complexType name="StadeContract">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Caracs" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
       <xs:element minOccurs="0" name="NbPlace" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

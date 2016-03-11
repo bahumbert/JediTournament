@@ -38,7 +38,7 @@ namespace JediWebService
                     listC.Add(new CaracteristiqueContract(c.Nom,c.Valeur));
                 }
 
-                JediContract jedi = new JediContract(j.Nom,listC,j.IsSith);
+                JediContract jedi = new JediContract(j.ID,j.Nom,listC,j.IsSith);
 
                 list.Add(jedi);
             }
@@ -124,10 +124,10 @@ namespace JediWebService
             jtm.modJedi(jedi);
         }
 
-        public void delJedi(string nom)
+        public void delJedi(int id)
         {
             List<Jedi> listJedi = jtm.getAllJedis();
-            Jedi jedi = listJedi.Find(j => j.Nom == nom);
+            Jedi jedi = listJedi.Find(j => j.ID == id);
             jtm.delJedi(jedi);
         }
 
@@ -242,10 +242,10 @@ namespace JediWebService
             jtm.modStade(stade);
       }
 
-      public void delStade(string nom)
+      public void delStade(int id)
       {
           List<Stade> listStade = jtm.getAllStades();
-          Stade stade = listStade.Find(s => s.Nom == nom);
+          Stade stade = listStade.Find(s => s.ID == id);
           jtm.delStade(stade);
       }
 
@@ -414,10 +414,10 @@ namespace JediWebService
             jtm.modTournoi(tournoi);
         }
 
-        public void delTournoi(string nom)
+        public void delTournoi(int id)
         {
             List<Tournoi> listTournoi = jtm.getAllTournois();
-            Tournoi tournoi = listTournoi.Find(t => t.Nom == nom);
+            Tournoi tournoi = listTournoi.Find(t => t.ID == id);
             jtm.delTournoi(tournoi);
         }
         #endregion
