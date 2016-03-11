@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "GestionCaractéristiques";
+}
+
+<h2>GestionCaractéristiques</h2>
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table tableau">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            @foreach (var carac in ViewBag.Caractéristiques)
+            {
+                <tbody>
+                    <tr>
+                        <td>@carac.Nom</td>
+                        <td>@carac.Valeur</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+</div>
