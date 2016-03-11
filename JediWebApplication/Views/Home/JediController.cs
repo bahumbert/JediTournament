@@ -8,10 +8,23 @@ namespace JediWebApplication.Views.Home
 {
     public class JediController : Controller
     {
+
+        ServiceReference1.Service1Client client;
+
+        public JediController()
+        {
+            client = new ServiceReference1.Service1Client();
+        }
+
+        public ActionResult index()
+        {
+            return RedirectToAction("GestionJedis");
+        }
+
         // GET: Jedi
         public ActionResult GestionJedis()
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            //ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             ViewBag.Jedis = client.GetJedis();
             client.Close();
             return View();
@@ -20,22 +33,34 @@ namespace JediWebApplication.Views.Home
         // GET: Jedi/Details/5
         public ActionResult Details(int id)
         {
+
             return View();
+            //return RedirectToAction("GestionJedis");
         }
 
         // GET: Jedi/Create
-        public ActionResult Create()
+        public ActionResult Ajouter()
         {
             return View();
         }
 
         // POST: Jedi/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ajouter(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
+
+                bool isSith;
+
+                if (collection.GetValues("IsSith").First() == "true")
+                {
+                    isSith = true;
+                }
+                else isSith = false;
+                
+                client.AddJedi(collection.GetValues("Nom").First(), isSith, null, null, null, null);
 
                 return RedirectToAction("Index");
             }

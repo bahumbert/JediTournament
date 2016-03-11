@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:63198/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/JediWebService" />
+  <xs:import schemaLocation="http://localhost:63198/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer" />
   <xs:element name="GetJedis">
     <xs:complexType>
       <xs:sequence />
@@ -13,6 +14,66 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetCaracteristiquesByJedi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="j" nillable="true" type="q2:JediContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCaracteristiquesByJediResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesByJediResult" nillable="true" type="q3:ArrayOfCaracteristiqueContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddJedi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isSith" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="force" nillable="true" type="q4:CaracteristiqueContract" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="defense" nillable="true" type="q5:CaracteristiqueContract" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="chance" nillable="true" type="q6:CaracteristiqueContract" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="sante" nillable="true" type="q7:CaracteristiqueContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddJediResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modJedi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="isSith" type="xs:boolean" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="force" nillable="true" type="q8:CaracteristiqueContract" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="defense" nillable="true" type="q9:CaracteristiqueContract" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="chance" nillable="true" type="q10:CaracteristiqueContract" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="sante" nillable="true" type="q11:CaracteristiqueContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modJediResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delJedi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delJediResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetStades">
     <xs:complexType>
       <xs:sequence />
@@ -21,8 +82,57 @@
   <xs:element name="GetStadesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetStadesResult" nillable="true" type="q2:ArrayOfStadeContract" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetStadesResult" nillable="true" type="q12:ArrayOfStadeContract" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nbPlaces" type="xs:int" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="planete" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="force" nillable="true" type="q13:CaracteristiqueContract" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="defense" nillable="true" type="q14:CaracteristiqueContract" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="chance" nillable="true" type="q15:CaracteristiqueContract" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="sante" nillable="true" type="q16:CaracteristiqueContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddStadeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modStade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="nbPlaces" type="xs:int" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="planete" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="force" nillable="true" type="q17:CaracteristiqueContract" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="defense" nillable="true" type="q18:CaracteristiqueContract" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="chance" nillable="true" type="q19:CaracteristiqueContract" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="sante" nillable="true" type="q20:CaracteristiqueContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modStadeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delStade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delStadeResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetMatchs">
@@ -33,8 +143,52 @@
   <xs:element name="GetMatchsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetMatchsResult" nillable="true" type="q3:ArrayOfMatchContract" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetMatchsResult" nillable="true" type="q21:ArrayOfMatchContract" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJediVainqueur" type="xs:int" />
+        <xs:element minOccurs="0" name="jedic1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jedic2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stadec" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMatchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="idJediVainqueur" type="xs:int" />
+        <xs:element minOccurs="0" name="jedic1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="jedic2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stadec" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="phase" type="q22:EPhaseTournoi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modMatchResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delMatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delMatchResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTournois">
@@ -45,8 +199,47 @@
   <xs:element name="GetTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetTournoisResult" nillable="true" type="q4:ArrayOfTournoiContract" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetTournoisResult" nillable="true" type="q23:ArrayOfTournoiContract" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTournoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="listMatchc" nillable="true" type="q24:ArrayOfMatchContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTournoiResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modTournoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="listMatchc" nillable="true" type="q25:ArrayOfMatchContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modTournoiResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delTournoi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delTournoiResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCaracteristiques">
@@ -57,37 +250,49 @@
   <xs:element name="GetCaracteristiquesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q5:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q26:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCaracteristiquesByJedi">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="j" nillable="true" type="q6:JediContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetCaracteristiquesByJediResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesByJediResult" nillable="true" type="q7:ArrayOfCaracteristiqueContract" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddJedi">
+  <xs:element name="AddCarac">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="isSith" type="xs:boolean" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="force" nillable="true" type="q8:CaracteristiqueContract" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="defense" nillable="true" type="q9:CaracteristiqueContract" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="chance" nillable="true" type="q10:CaracteristiqueContract" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="sante" nillable="true" type="q11:CaracteristiqueContract" />
+        <xs:element minOccurs="0" name="valeur" type="xs:int" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q27:EDefCaracteristique" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q28:ETypeCaracteristique" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddJediResponse">
+  <xs:element name="AddCaracResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modCarac">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="valeur" type="xs:int" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q29:EDefCaracteristique" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q30:ETypeCaracteristique" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modCaracResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delCarac">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="delCaracResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

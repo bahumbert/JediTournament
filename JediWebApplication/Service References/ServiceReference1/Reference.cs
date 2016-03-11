@@ -26,6 +26,9 @@ namespace JediWebApplication.ServiceReference1 {
         private JediWebApplication.ServiceReference1.CaracteristiqueContract[] CaracteristiquesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsSithField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -50,6 +53,19 @@ namespace JediWebApplication.ServiceReference1 {
                 if ((object.ReferenceEquals(this.CaracteristiquesField, value) != true)) {
                     this.CaracteristiquesField = value;
                     this.RaisePropertyChanged("Caracteristiques");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -161,7 +177,13 @@ namespace JediWebApplication.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JediWebApplication.ServiceReference1.CaracteristiqueContract[] CaracsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int NbPlaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PlaneteField;
@@ -177,6 +199,19 @@ namespace JediWebApplication.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] Caracs {
+            get {
+                return this.CaracsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaracsField, value) != true)) {
+                    this.CaracsField = value;
+                    this.RaisePropertyChanged("Caracs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int NbPlace {
             get {
                 return this.NbPlaceField;
@@ -185,6 +220,19 @@ namespace JediWebApplication.ServiceReference1 {
                 if ((this.NbPlaceField.Equals(value) != true)) {
                     this.NbPlaceField = value;
                     this.RaisePropertyChanged("NbPlace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nom {
+            get {
+                return this.NomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomField, value) != true)) {
+                    this.NomField = value;
+                    this.RaisePropertyChanged("Nom");
                 }
             }
         }
@@ -321,6 +369,20 @@ namespace JediWebApplication.ServiceReference1 {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EPhaseTournoi", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
+    public enum EPhaseTournoi : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QuartFinale = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DemiFinale = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Finale = 2,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TournoiContract", Namespace="http://schemas.datacontract.org/2004/07/JediWebService")]
@@ -382,6 +444,34 @@ namespace JediWebApplication.ServiceReference1 {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EDefCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
+    public enum EDefCaracteristique : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Force = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Defense = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Sante = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Chance = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ETypeCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
+    public enum ETypeCaracteristique : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jedi = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Stade = 1,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -391,30 +481,6 @@ namespace JediWebApplication.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetJedis", ReplyAction="http://tempuri.org/IService1/GetJedisResponse")]
         System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.JediContract[]> GetJedisAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStades", ReplyAction="http://tempuri.org/IService1/GetStadesResponse")]
-        JediWebApplication.ServiceReference1.StadeContract[] GetStades();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStades", ReplyAction="http://tempuri.org/IService1/GetStadesResponse")]
-        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.StadeContract[]> GetStadesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMatchs", ReplyAction="http://tempuri.org/IService1/GetMatchsResponse")]
-        JediWebApplication.ServiceReference1.MatchContract[] GetMatchs();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMatchs", ReplyAction="http://tempuri.org/IService1/GetMatchsResponse")]
-        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.MatchContract[]> GetMatchsAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTournois", ReplyAction="http://tempuri.org/IService1/GetTournoisResponse")]
-        JediWebApplication.ServiceReference1.TournoiContract[] GetTournois();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTournois", ReplyAction="http://tempuri.org/IService1/GetTournoisResponse")]
-        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
-        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
-        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesByJedi", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesByJediResponse")]
         JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j);
@@ -427,6 +493,114 @@ namespace JediWebApplication.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJedi", ReplyAction="http://tempuri.org/IService1/AddJediResponse")]
         System.Threading.Tasks.Task AddJediAsync(string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modJedi", ReplyAction="http://tempuri.org/IService1/modJediResponse")]
+        void modJedi(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modJedi", ReplyAction="http://tempuri.org/IService1/modJediResponse")]
+        System.Threading.Tasks.Task modJediAsync(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delJedi", ReplyAction="http://tempuri.org/IService1/delJediResponse")]
+        void delJedi(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delJedi", ReplyAction="http://tempuri.org/IService1/delJediResponse")]
+        System.Threading.Tasks.Task delJediAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStades", ReplyAction="http://tempuri.org/IService1/GetStadesResponse")]
+        JediWebApplication.ServiceReference1.StadeContract[] GetStades();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetStades", ReplyAction="http://tempuri.org/IService1/GetStadesResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.StadeContract[]> GetStadesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddStade", ReplyAction="http://tempuri.org/IService1/AddStadeResponse")]
+        void AddStade(int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddStade", ReplyAction="http://tempuri.org/IService1/AddStadeResponse")]
+        System.Threading.Tasks.Task AddStadeAsync(int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modStade", ReplyAction="http://tempuri.org/IService1/modStadeResponse")]
+        void modStade(int id, int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modStade", ReplyAction="http://tempuri.org/IService1/modStadeResponse")]
+        System.Threading.Tasks.Task modStadeAsync(int id, int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delStade", ReplyAction="http://tempuri.org/IService1/delStadeResponse")]
+        void delStade(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delStade", ReplyAction="http://tempuri.org/IService1/delStadeResponse")]
+        System.Threading.Tasks.Task delStadeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMatchs", ReplyAction="http://tempuri.org/IService1/GetMatchsResponse")]
+        JediWebApplication.ServiceReference1.MatchContract[] GetMatchs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetMatchs", ReplyAction="http://tempuri.org/IService1/GetMatchsResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.MatchContract[]> GetMatchsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMatch", ReplyAction="http://tempuri.org/IService1/AddMatchResponse")]
+        void AddMatch(int idJediVainqueur, string jedic1, string jedic2, string stadec);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddMatch", ReplyAction="http://tempuri.org/IService1/AddMatchResponse")]
+        System.Threading.Tasks.Task AddMatchAsync(int idJediVainqueur, string jedic1, string jedic2, string stadec);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modMatch", ReplyAction="http://tempuri.org/IService1/modMatchResponse")]
+        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modMatch", ReplyAction="http://tempuri.org/IService1/modMatchResponse")]
+        System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delMatch", ReplyAction="http://tempuri.org/IService1/delMatchResponse")]
+        void delMatch(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delMatch", ReplyAction="http://tempuri.org/IService1/delMatchResponse")]
+        System.Threading.Tasks.Task delMatchAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTournois", ReplyAction="http://tempuri.org/IService1/GetTournoisResponse")]
+        JediWebApplication.ServiceReference1.TournoiContract[] GetTournois();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTournois", ReplyAction="http://tempuri.org/IService1/GetTournoisResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTournoi", ReplyAction="http://tempuri.org/IService1/AddTournoiResponse")]
+        void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTournoi", ReplyAction="http://tempuri.org/IService1/AddTournoiResponse")]
+        System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modTournoi", ReplyAction="http://tempuri.org/IService1/modTournoiResponse")]
+        void modTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modTournoi", ReplyAction="http://tempuri.org/IService1/modTournoiResponse")]
+        System.Threading.Tasks.Task modTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delTournoi", ReplyAction="http://tempuri.org/IService1/delTournoiResponse")]
+        void delTournoi(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delTournoi", ReplyAction="http://tempuri.org/IService1/delTournoiResponse")]
+        System.Threading.Tasks.Task delTournoiAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCarac", ReplyAction="http://tempuri.org/IService1/AddCaracResponse")]
+        void AddCarac(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCarac", ReplyAction="http://tempuri.org/IService1/AddCaracResponse")]
+        System.Threading.Tasks.Task AddCaracAsync(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modCarac", ReplyAction="http://tempuri.org/IService1/modCaracResponse")]
+        void modCarac(int id, string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modCarac", ReplyAction="http://tempuri.org/IService1/modCaracResponse")]
+        System.Threading.Tasks.Task modCaracAsync(int id, string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delCarac", ReplyAction="http://tempuri.org/IService1/delCaracResponse")]
+        void delCarac(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delCarac", ReplyAction="http://tempuri.org/IService1/delCaracResponse")]
+        System.Threading.Tasks.Task delCaracAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -464,38 +638,6 @@ namespace JediWebApplication.ServiceReference1 {
             return base.Channel.GetJedisAsync();
         }
         
-        public JediWebApplication.ServiceReference1.StadeContract[] GetStades() {
-            return base.Channel.GetStades();
-        }
-        
-        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.StadeContract[]> GetStadesAsync() {
-            return base.Channel.GetStadesAsync();
-        }
-        
-        public JediWebApplication.ServiceReference1.MatchContract[] GetMatchs() {
-            return base.Channel.GetMatchs();
-        }
-        
-        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.MatchContract[]> GetMatchsAsync() {
-            return base.Channel.GetMatchsAsync();
-        }
-        
-        public JediWebApplication.ServiceReference1.TournoiContract[] GetTournois() {
-            return base.Channel.GetTournois();
-        }
-        
-        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync() {
-            return base.Channel.GetTournoisAsync();
-        }
-        
-        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques() {
-            return base.Channel.GetCaracteristiques();
-        }
-        
-        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync() {
-            return base.Channel.GetCaracteristiquesAsync();
-        }
-        
         public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j) {
             return base.Channel.GetCaracteristiquesByJedi(j);
         }
@@ -510,6 +652,150 @@ namespace JediWebApplication.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddJediAsync(string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
             return base.Channel.AddJediAsync(nom, isSith, force, defense, chance, sante);
+        }
+        
+        public void modJedi(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            base.Channel.modJedi(id, isSith, force, defense, chance, sante);
+        }
+        
+        public System.Threading.Tasks.Task modJediAsync(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            return base.Channel.modJediAsync(id, isSith, force, defense, chance, sante);
+        }
+        
+        public void delJedi(int id) {
+            base.Channel.delJedi(id);
+        }
+        
+        public System.Threading.Tasks.Task delJediAsync(int id) {
+            return base.Channel.delJediAsync(id);
+        }
+        
+        public JediWebApplication.ServiceReference1.StadeContract[] GetStades() {
+            return base.Channel.GetStades();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.StadeContract[]> GetStadesAsync() {
+            return base.Channel.GetStadesAsync();
+        }
+        
+        public void AddStade(int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            base.Channel.AddStade(nbPlaces, nom, planete, force, defense, chance, sante);
+        }
+        
+        public System.Threading.Tasks.Task AddStadeAsync(int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            return base.Channel.AddStadeAsync(nbPlaces, nom, planete, force, defense, chance, sante);
+        }
+        
+        public void modStade(int id, int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            base.Channel.modStade(id, nbPlaces, nom, planete, force, defense, chance, sante);
+        }
+        
+        public System.Threading.Tasks.Task modStadeAsync(int id, int nbPlaces, string nom, string planete, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            return base.Channel.modStadeAsync(id, nbPlaces, nom, planete, force, defense, chance, sante);
+        }
+        
+        public void delStade(int id) {
+            base.Channel.delStade(id);
+        }
+        
+        public System.Threading.Tasks.Task delStadeAsync(int id) {
+            return base.Channel.delStadeAsync(id);
+        }
+        
+        public JediWebApplication.ServiceReference1.MatchContract[] GetMatchs() {
+            return base.Channel.GetMatchs();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.MatchContract[]> GetMatchsAsync() {
+            return base.Channel.GetMatchsAsync();
+        }
+        
+        public void AddMatch(int idJediVainqueur, string jedic1, string jedic2, string stadec) {
+            base.Channel.AddMatch(idJediVainqueur, jedic1, jedic2, stadec);
+        }
+        
+        public System.Threading.Tasks.Task AddMatchAsync(int idJediVainqueur, string jedic1, string jedic2, string stadec) {
+            return base.Channel.AddMatchAsync(idJediVainqueur, jedic1, jedic2, stadec);
+        }
+        
+        public void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase) {
+            base.Channel.modMatch(id, idJediVainqueur, jedic1, jedic2, stadec, phase);
+        }
+        
+        public System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase) {
+            return base.Channel.modMatchAsync(id, idJediVainqueur, jedic1, jedic2, stadec, phase);
+        }
+        
+        public void delMatch(int id) {
+            base.Channel.delMatch(id);
+        }
+        
+        public System.Threading.Tasks.Task delMatchAsync(int id) {
+            return base.Channel.delMatchAsync(id);
+        }
+        
+        public JediWebApplication.ServiceReference1.TournoiContract[] GetTournois() {
+            return base.Channel.GetTournois();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync() {
+            return base.Channel.GetTournoisAsync();
+        }
+        
+        public void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
+            base.Channel.AddTournoi(nom, listMatchc);
+        }
+        
+        public System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
+            return base.Channel.AddTournoiAsync(nom, listMatchc);
+        }
+        
+        public void modTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
+            base.Channel.modTournoi(id, nom, listMatchc);
+        }
+        
+        public System.Threading.Tasks.Task modTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
+            return base.Channel.modTournoiAsync(id, nom, listMatchc);
+        }
+        
+        public void delTournoi(int id) {
+            base.Channel.delTournoi(id);
+        }
+        
+        public System.Threading.Tasks.Task delTournoiAsync(int id) {
+            return base.Channel.delTournoiAsync(id);
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiques() {
+            return base.Channel.GetCaracteristiques();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync() {
+            return base.Channel.GetCaracteristiquesAsync();
+        }
+        
+        public void AddCarac(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type) {
+            base.Channel.AddCarac(nom, valeur, definition, type);
+        }
+        
+        public System.Threading.Tasks.Task AddCaracAsync(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type) {
+            return base.Channel.AddCaracAsync(nom, valeur, definition, type);
+        }
+        
+        public void modCarac(int id, string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type) {
+            base.Channel.modCarac(id, nom, valeur, definition, type);
+        }
+        
+        public System.Threading.Tasks.Task modCaracAsync(int id, string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type) {
+            return base.Channel.modCaracAsync(id, nom, valeur, definition, type);
+        }
+        
+        public void delCarac(int id) {
+            base.Channel.delCarac(id);
+        }
+        
+        public System.Threading.Tasks.Task delCaracAsync(int id) {
+            return base.Channel.delCaracAsync(id);
         }
     }
 }

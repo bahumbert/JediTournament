@@ -26,7 +26,7 @@ namespace JediWebService
         void modJedi(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
-        void delJedi(string nom);
+        void delJedi(int id);
             #endregion
         #region "Liés aux Stades"
         [OperationContract]
@@ -39,7 +39,7 @@ namespace JediWebService
         void modStade(int id, int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
-        void delStade(string nom);
+        void delStade(int id);
         #endregion
         #region "Liés aux Matchs"
         [OperationContract]
@@ -65,7 +65,7 @@ namespace JediWebService
         void modTournoi(int id, string nom, List<MatchContract> listMatchc);
 
         [OperationContract]
-        void delTournoi(string nom);
+        void delTournoi(int id);
         #endregion
         #region "Liés aux Caracteristiques"
         [OperationContract]
@@ -85,18 +85,27 @@ namespace JediWebService
     [DataContract]
     public class JediContract
     {
+        int id;
         string nom;
         List<CaracteristiqueContract> caracteristiques;
         bool isSith;
 
-        public JediContract(string nom, List<CaracteristiqueContract> caracteristiques, bool isSith)
+        public JediContract(int id, string nom, List<CaracteristiqueContract> caracteristiques, bool isSith)
         {
+            this.id = id;
             this.nom = nom;
             this.caracteristiques = caracteristiques;
             this.isSith = isSith;
         }
 
         public JediContract(){}
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         [DataMember]
         public List<CaracteristiqueContract> Caracteristiques

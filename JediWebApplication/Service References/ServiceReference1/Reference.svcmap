@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:63198/Service1.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="fc44eb09-3436-4f30-9371-2fbf85946725" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="92001906-9fd0-46cf-84e0-23d9743a9a89" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="69ce695d-545e-42b8-ac94-7070f1b0e8d3" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="7373abc4-35af-4d0d-a4c7-53e6091b1502" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd2" />
     <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="3d8a851c-eac1-4ac3-8eb5-6fb3c1bffabe" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?disco" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="7373abc4-35af-4d0d-a4c7-53e6091b1502" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="fc44eb09-3436-4f30-9371-2fbf85946725" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="69ce695d-545e-42b8-ac94-7070f1b0e8d3" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="0951aada-28ce-4488-bfe2-5b49edcf80b9" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="92001906-9fd0-46cf-84e0-23d9743a9a89" SourceId="1" SourceUrl="http://localhost:63198/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
