@@ -17,13 +17,13 @@ namespace JediWebService
         List<JediContract> GetJedis();
 
         [OperationContract]
-        List<CaracteristiqueContract> GetCaracteristiquesByJedi(JediContract j);
+        List<CaracteristiqueContract> GetCaracteristiquesByJedi(int id);
 
         [OperationContract]
         void AddJedi(string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
-        void modJedi(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
+        void modJedi(int id, string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
         void delJedi(int id);
@@ -70,6 +70,15 @@ namespace JediWebService
         #region "Liés aux Caracteristiques"
         [OperationContract]
         List<CaracteristiqueContract> GetCaracteristiques();
+
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesJediForce();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesJediDefense();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesJediChance();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesJediSante();
 
         [OperationContract]
         void AddCarac(string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type);
@@ -260,11 +269,15 @@ namespace JediWebService
     public class CaracteristiqueContract
     {
         string nom;
+        EDefCaracteristique definition;
+        ETypeCaracteristique type;
         int valeur;
 
-        public CaracteristiqueContract(string nom, int valeur)
+        public CaracteristiqueContract(string nom, EDefCaracteristique definition, ETypeCaracteristique type, int valeur)
         {
             this.nom = nom;
+            this.definition = definition;
+            this.type = type;
             this.valeur = valeur;
         }
 
@@ -278,6 +291,20 @@ namespace JediWebService
         {
             get { return nom; }
             set { nom = value; }
+        }
+
+        [DataMember]
+        public EDefCaracteristique Definition
+        {
+            get { return definition ; }
+            set { definition = value; }
+        }
+
+        [DataMember]
+        public ETypeCaracteristique Type
+        {
+            get { return type; }
+            set { type = value; }
         }
 
         [DataMember]

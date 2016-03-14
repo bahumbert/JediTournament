@@ -35,7 +35,7 @@ namespace JediWebService
 
                 foreach (Caracteristique c in j.Caracteristiques)
                 {
-                    listC.Add(new CaracteristiqueContract(c.Nom,c.Valeur));
+                    listC.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
                 }
 
                 JediContract jedi = new JediContract(j.ID,j.Nom,listC,j.IsSith);
@@ -45,16 +45,16 @@ namespace JediWebService
             return list;
          }
 
-        public List<CaracteristiqueContract> GetCaracteristiquesByJedi(JediContract j)
+        public List<CaracteristiqueContract> GetCaracteristiquesByJedi(int id)
         {
             List<CaracteristiqueContract> list = new List<CaracteristiqueContract>();
             List<Caracteristique> listcaract = new List<Caracteristique>();
             List<Jedi> listjedi = new List<Jedi>();
             listjedi = jtm.getAllJedis();
-            Jedi jedi = listjedi.Find(x => x.Nom == j.Nom);
+            Jedi jedi = listjedi.Find(x => x.ID == id);
             foreach (Caracteristique c in jedi.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Valeur);
+                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur);
                 list.Add(carac);
             }
             return list;
@@ -87,7 +87,7 @@ namespace JediWebService
             jtm.addJedi(jedi);
         }
 
-        public void modJedi(int id, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
+        public void modJedi(int id, string nom, bool isSith, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante)
         {
 
             List<Caracteristique> carac = new List<Caracteristique>();
@@ -115,6 +115,11 @@ namespace JediWebService
             List<Jedi> listJedi = jtm.getAllJedis();
 
             Jedi jedi = listJedi.Find(j => j.ID == id);
+
+            if (nom != null)
+            {
+                jedi.Nom = nom;
+            }
 
             jedi.IsSith = isSith;
             if (carac != null)
@@ -144,7 +149,7 @@ namespace JediWebService
 
                 foreach (Caracteristique c in s.Caracteristiques)
                 {
-                    listCarac.Add(new CaracteristiqueContract(c.Nom,c.Valeur));
+                    listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
                 }
 
                 StadeContract stade = new StadeContract(s.NbPlaces,s.Nom,s.Planete,listCarac);
@@ -162,7 +167,7 @@ namespace JediWebService
             Stade stade = listStade.Find(x => x.Planete == s.Planete);
             foreach (Caracteristique c in stade.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Valeur);
+                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur);
                 list.Add(carac);
             }
             return list;
@@ -436,11 +441,72 @@ namespace JediWebService
 
                 foreach (Caracteristique c in listC)
                 {
-                    listCarac.Add(new CaracteristiqueContract(c.Nom, c.Valeur));
+                    listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition,c.Type, c.Valeur));
                 }
 
                 return listCarac;
             }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesJediForce()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllJediCaracs().Where(c => c.Definition == EDefCaracteristique.Force).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesJediDefense()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllJediCaracs().Where(c => c.Definition == EDefCaracteristique.Defense).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesJediChance()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllJediCaracs().Where(c => c.Definition == EDefCaracteristique.Chance).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesJediSante()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllJediCaracs().Where(c => c.Definition == EDefCaracteristique.Sante).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
         public void AddCarac(string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type)
         {
 

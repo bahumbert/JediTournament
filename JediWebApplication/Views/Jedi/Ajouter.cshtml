@@ -10,7 +10,7 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Jedi</h4>
         <hr />
@@ -32,7 +32,65 @@
                 @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                Force : 
+                <select id="force">
+                    <option>null</option>
+                    @foreach (var caracteristique in ViewBag.Force)
+                    {
+                        if (@caracteristique.Nom != null)
+                        {
 
+                            <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                        }
+                    }
+                </select>
+
+                Defense : 
+                <select id="defense">
+                    <option>null</option>
+                    @foreach (var caracteristique in ViewBag.Defense)
+                    {
+                        if (@caracteristique.Nom != null)
+                        {
+
+                            <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                        }
+                    }
+                </select>
+
+                Chance : 
+                <select id="chance">
+                    <option>null</option>
+                    @foreach (var caracteristique in ViewBag.Chance)
+                    {
+                        if (@caracteristique.Nom != null)
+                        {
+
+                            <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                        }
+                    }
+                </select>
+
+                Sante : 
+                <select id="sante">
+                    <option>null</option>
+                    @foreach (var caracteristique in ViewBag.Sante)
+                    {
+                        if (@caracteristique.Nom != null)
+                        {
+
+                            <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                        }
+                    }
+                </select>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Ajouter" class="btn btn-default" />

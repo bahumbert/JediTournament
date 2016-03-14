@@ -116,7 +116,13 @@ namespace JediWebApplication.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JediWebApplication.ServiceReference1.EDefCaracteristique DefinitionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JediWebApplication.ServiceReference1.ETypeCaracteristique TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ValeurField;
@@ -132,6 +138,19 @@ namespace JediWebApplication.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public JediWebApplication.ServiceReference1.EDefCaracteristique Definition {
+            get {
+                return this.DefinitionField;
+            }
+            set {
+                if ((this.DefinitionField.Equals(value) != true)) {
+                    this.DefinitionField = value;
+                    this.RaisePropertyChanged("Definition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Nom {
             get {
                 return this.NomField;
@@ -140,6 +159,19 @@ namespace JediWebApplication.ServiceReference1 {
                 if ((object.ReferenceEquals(this.NomField, value) != true)) {
                     this.NomField = value;
                     this.RaisePropertyChanged("Nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JediWebApplication.ServiceReference1.ETypeCaracteristique Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((this.TypeField.Equals(value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }
@@ -165,6 +197,34 @@ namespace JediWebApplication.ServiceReference1 {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EDefCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
+    public enum EDefCaracteristique : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Force = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Defense = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Sante = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Chance = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ETypeCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
+    public enum ETypeCaracteristique : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Jedi = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Stade = 1,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -444,34 +504,6 @@ namespace JediWebApplication.ServiceReference1 {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EDefCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    public enum EDefCaracteristique : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Force = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Defense = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Sante = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Chance = 3,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ETypeCaracteristique", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    public enum ETypeCaracteristique : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Jedi = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Stade = 1,
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -483,10 +515,10 @@ namespace JediWebApplication.ServiceReference1 {
         System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.JediContract[]> GetJedisAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesByJedi", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesByJediResponse")]
-        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j);
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesByJedi", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesByJediResponse")]
-        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesByJediAsync(JediWebApplication.ServiceReference1.JediContract j);
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesByJediAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddJedi", ReplyAction="http://tempuri.org/IService1/AddJediResponse")]
         void AddJedi(string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
@@ -495,10 +527,10 @@ namespace JediWebApplication.ServiceReference1 {
         System.Threading.Tasks.Task AddJediAsync(string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modJedi", ReplyAction="http://tempuri.org/IService1/modJediResponse")]
-        void modJedi(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        void modJedi(int id, string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modJedi", ReplyAction="http://tempuri.org/IService1/modJediResponse")]
-        System.Threading.Tasks.Task modJediAsync(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
+        System.Threading.Tasks.Task modJediAsync(int id, string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delJedi", ReplyAction="http://tempuri.org/IService1/delJediResponse")]
         void delJedi(int id);
@@ -584,6 +616,30 @@ namespace JediWebApplication.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiques", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesResponse")]
         System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediForce", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediForceResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediForce();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediForce", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediForceResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediForceAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediDefense", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediDefenseResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediDefense();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediDefense", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediDefenseResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediDefenseAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediChance", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediChanceResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediChance();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediChance", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediChanceResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediChanceAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediSante", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediSanteResponse")]
+        JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediSante();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCaracteristiquesJediSante", ReplyAction="http://tempuri.org/IService1/GetCaracteristiquesJediSanteResponse")]
+        System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediSanteAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCarac", ReplyAction="http://tempuri.org/IService1/AddCaracResponse")]
         void AddCarac(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type);
         
@@ -638,12 +694,12 @@ namespace JediWebApplication.ServiceReference1 {
             return base.Channel.GetJedisAsync();
         }
         
-        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(JediWebApplication.ServiceReference1.JediContract j) {
-            return base.Channel.GetCaracteristiquesByJedi(j);
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesByJedi(int id) {
+            return base.Channel.GetCaracteristiquesByJedi(id);
         }
         
-        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesByJediAsync(JediWebApplication.ServiceReference1.JediContract j) {
-            return base.Channel.GetCaracteristiquesByJediAsync(j);
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesByJediAsync(int id) {
+            return base.Channel.GetCaracteristiquesByJediAsync(id);
         }
         
         public void AddJedi(string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
@@ -654,12 +710,12 @@ namespace JediWebApplication.ServiceReference1 {
             return base.Channel.AddJediAsync(nom, isSith, force, defense, chance, sante);
         }
         
-        public void modJedi(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
-            base.Channel.modJedi(id, isSith, force, defense, chance, sante);
+        public void modJedi(int id, string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            base.Channel.modJedi(id, nom, isSith, force, defense, chance, sante);
         }
         
-        public System.Threading.Tasks.Task modJediAsync(int id, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
-            return base.Channel.modJediAsync(id, isSith, force, defense, chance, sante);
+        public System.Threading.Tasks.Task modJediAsync(int id, string nom, bool isSith, JediWebApplication.ServiceReference1.CaracteristiqueContract force, JediWebApplication.ServiceReference1.CaracteristiqueContract defense, JediWebApplication.ServiceReference1.CaracteristiqueContract chance, JediWebApplication.ServiceReference1.CaracteristiqueContract sante) {
+            return base.Channel.modJediAsync(id, nom, isSith, force, defense, chance, sante);
         }
         
         public void delJedi(int id) {
@@ -772,6 +828,38 @@ namespace JediWebApplication.ServiceReference1 {
         
         public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesAsync() {
             return base.Channel.GetCaracteristiquesAsync();
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediForce() {
+            return base.Channel.GetCaracteristiquesJediForce();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediForceAsync() {
+            return base.Channel.GetCaracteristiquesJediForceAsync();
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediDefense() {
+            return base.Channel.GetCaracteristiquesJediDefense();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediDefenseAsync() {
+            return base.Channel.GetCaracteristiquesJediDefenseAsync();
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediChance() {
+            return base.Channel.GetCaracteristiquesJediChance();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediChanceAsync() {
+            return base.Channel.GetCaracteristiquesJediChanceAsync();
+        }
+        
+        public JediWebApplication.ServiceReference1.CaracteristiqueContract[] GetCaracteristiquesJediSante() {
+            return base.Channel.GetCaracteristiquesJediSante();
+        }
+        
+        public System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.CaracteristiqueContract[]> GetCaracteristiquesJediSanteAsync() {
+            return base.Channel.GetCaracteristiquesJediSanteAsync();
         }
         
         public void AddCarac(string nom, int valeur, JediWebApplication.ServiceReference1.EDefCaracteristique definition, JediWebApplication.ServiceReference1.ETypeCaracteristique type) {

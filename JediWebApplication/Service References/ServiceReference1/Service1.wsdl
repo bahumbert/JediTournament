@@ -116,6 +116,30 @@
   <wsdl:message name="IService1_GetCaracteristiques_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCaracteristiquesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediForce_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediForce" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediForce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediForceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediDefense_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediDefense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediDefense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediDefenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediChance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediChance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediChance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediChanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediSante_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediSante" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesJediSante_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediSanteResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddCarac_InputMessage">
     <wsdl:part name="parameters" element="tns:AddCarac" />
   </wsdl:message>
@@ -206,6 +230,22 @@
     <wsdl:operation name="GetCaracteristiques">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiques" message="tns:IService1_GetCaracteristiques_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesResponse" message="tns:IService1_GetCaracteristiques_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediForce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediForce" message="tns:IService1_GetCaracteristiquesJediForce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediForceResponse" message="tns:IService1_GetCaracteristiquesJediForce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediDefense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediDefense" message="tns:IService1_GetCaracteristiquesJediDefense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediDefenseResponse" message="tns:IService1_GetCaracteristiquesJediDefense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediChance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediChance" message="tns:IService1_GetCaracteristiquesJediChance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediChanceResponse" message="tns:IService1_GetCaracteristiquesJediChance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediSante">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediSante" message="tns:IService1_GetCaracteristiquesJediSante_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediSanteResponse" message="tns:IService1_GetCaracteristiquesJediSante_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddCarac">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCarac" message="tns:IService1_AddCarac_InputMessage" />
@@ -377,6 +417,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetCaracteristiques">
       <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiques" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediForce">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesJediForce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediDefense">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesJediDefense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediChance">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesJediChance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesJediSante">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesJediSante" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

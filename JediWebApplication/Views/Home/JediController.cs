@@ -26,14 +26,14 @@ namespace JediWebApplication.Views.Home
         {
             //ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             ViewBag.Jedis = client.GetJedis();
-            client.Close();
             return View();
         }
 
         // GET: Jedi/Details/5
         public ActionResult Details(int id)
         {
-
+            ViewBag.Jedi = client.GetJedis().Where(c => c.Id == id).First();
+            ViewBag.Caracteristiques = client.GetCaracteristiquesByJedi(id);
             return View();
             //return RedirectToAction("GestionJedis");
         }
@@ -41,6 +41,12 @@ namespace JediWebApplication.Views.Home
         // GET: Jedi/Create
         public ActionResult Ajouter()
         {
+
+            ViewBag.Force = client.GetCaracteristiquesJediForce();
+            ViewBag.Defense = client.GetCaracteristiquesJediDefense();
+            ViewBag.Chance = client.GetCaracteristiquesJediChance();
+            ViewBag.Sante = client.GetCaracteristiquesJediSante();
+
             return View();
         }
 
@@ -51,6 +57,48 @@ namespace JediWebApplication.Views.Home
             try
             {
                 // TODO: Add insert logic here
+                
+                bool isSith;
+
+                if (collection.GetValues("IsSith").First() == "true")
+                {
+                    isSith = true;
+                }
+                else isSith = false;
+
+                /*ViewBag.caracForce = client.GetCaracteristiques().Where(c => c.Nom == collection.GetValues("Force").First());
+                Console.WriteLine(client.GetCaracteristiques().Where(c => c.Nom == collection.GetValues("Force").First()));*/
+                /*if (Request.Form["force"] != null)
+                {
+                    Console.WriteLine("HAHAHAHAHAHAHAHAH" + Request.Form["force"]);
+                }
+                else Console.WriteLine("KOUKOU");*/
+
+                /*ViewBag.test = client.GetCaracteristiques().Where(c => c.Nom == Request.Form["force"]);*/
+
+                client.AddJedi(collection.GetValues("Nom").First(), isSith, null, null,null,null);
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Jedi/Editer/5
+        public ActionResult Editer(int id)
+        {
+            ViewBag.Jedi = client.GetJedis().Where(c => c.Id == id).First();
+            return View();
+        }
+
+        // POST: Jedi/Editer/5
+        [HttpPost]
+        public ActionResult Editer(int id, FormCollection collection)
+        {
+            try
+            {
 
                 bool isSith;
 
@@ -59,8 +107,8 @@ namespace JediWebApplication.Views.Home
                     isSith = true;
                 }
                 else isSith = false;
-                
-                client.AddJedi(collection.GetValues("Nom").First(), isSith, null, null, null, null);
+
+                client.modJedi(id, collection.GetValues("Nom").First(), isSith, null, null, null, null);
 
                 return RedirectToAction("Index");
             }
@@ -70,41 +118,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Jedi/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Jedi/Supprimer/5
+        public ActionResult Supprimer(int id)
         {
+            ViewBag.Jedi = client.GetJedis().Where(c => c.Id == id).First();
             return View();
         }
 
-        // POST: Jedi/Edit/5
+        // POST: Jedi/Supprimer/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Supprimer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Jedi/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Jedi/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+                client.delJedi(id);
 
                 return RedirectToAction("Index");
             }
