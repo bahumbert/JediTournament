@@ -8,34 +8,45 @@ namespace JediWebApplication.Views.Home
 {
     public class TournoiController : Controller
     {
+        private ServiceReference1.Service1Client client;
+
+        public TournoiController()
+        {
+            client = new ServiceReference1.Service1Client();
+        }
+
+        public ActionResult index()
+        {
+            return RedirectToAction("GestionTournois");
+        }
+
         // GET: Tournoi
         public ActionResult GestionTournois()
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             ViewBag.Tournois = client.GetTournois();
-            client.Close();
             return View();
         }
 
         // GET: Tournoi/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.Tournois = client.GetTournois().Where(t => t.Id == id).First();
             return View();
         }
 
-        // GET: Tournoi/Create
-        public ActionResult Create()
+        // GET: Tournoi/Ajouter
+        public ActionResult Ajouter()
         {
             return View();
         }
 
-        // POST: Tournoi/Create
+        // POST: Tournoi/Ajouter
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ajouter(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                client.AddTournoi(collection.GetValues("Nom").First(),null,null,null,null);
 
                 return RedirectToAction("Index");
             }
@@ -45,19 +56,21 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Tournoi/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Tournoi/Editer/5
+        public ActionResult Editer(int id)
         {
+            ViewBag.Tournois = client.GetTournois().Where(t => t.Id == id).First();
+            ViewBag.Matchs = client.GetMatchs();
             return View();
         }
 
-        // POST: Tournoi/Edit/5
+        // POST: Tournoi/Editer/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                client.ModTournoi(id,collection.GetValues("Nom").First(), null, null, null, null);
 
                 return RedirectToAction("Index");
             }
@@ -67,19 +80,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Tournoi/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Tournoi/Supprimer/5
+        public ActionResult Supprimer(int id)
         {
+            ViewBag.Tournois = client.GetTournois().Where(t => t.Id == id).First();
             return View();
         }
 
-        // POST: Tournoi/Delete/5
+        // POST: Tournoi/Supprimer/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Supprimer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                client.delTournoi(id);
 
                 return RedirectToAction("Index");
             }

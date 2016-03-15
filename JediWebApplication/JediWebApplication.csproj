@@ -342,6 +342,10 @@
     <Content Include="Views\Match\Ajouter.cshtml" />
     <Content Include="Views\Match\Editer.cshtml" />
     <Content Include="Views\Match\Supprimer.cshtml" />
+    <Content Include="Views\Tournoi\Ajouter.cshtml" />
+    <Content Include="Views\Tournoi\Editer.cshtml" />
+    <Content Include="Views\Tournoi\Details.cshtml" />
+    <Content Include="Views\Tournoi\Supprimer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -52,7 +52,7 @@ namespace JediWebService
         void AddMatch(int idJediVainqueur, string jedic1, string jedic2, string stadec);
 
         [OperationContract]
-        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, EPhaseTournoi phase);
+        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec);
 
         [OperationContract]
         void delMatch(int id);
@@ -62,10 +62,10 @@ namespace JediWebService
         List<TournoiContract> GetTournois();
 
         [OperationContract]
-        void AddTournoi(string nom, List<MatchContract> listMatchc);
+        void AddTournoi(string nom, MatchContract match1, MatchContract match2, MatchContract match3, MatchContract match4);
 
         [OperationContract]
-        void modTournoi(int id, string nom, List<MatchContract> listMatchc);
+        void ModTournoi(int id, string nom, MatchContract match1, MatchContract match2, MatchContract match3, MatchContract match4);
 
         [OperationContract]
         void delTournoi(int id);

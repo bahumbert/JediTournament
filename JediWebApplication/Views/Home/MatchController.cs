@@ -47,7 +47,7 @@ namespace JediWebApplication.Views.Home
         {
             try
             {
-                //client.addMatch(collection.GetValues("IdJediVainqueur").First(), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First(), null)
+                client.AddMatch(int.Parse(collection.GetValues("IdJediVainqueur").First()), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First());
 
                 return RedirectToAction("Index");
             }
@@ -71,7 +71,7 @@ namespace JediWebApplication.Views.Home
         {
             try
             {
-                //client.modMatch(id, collection.GetValues("IdJediVainqueur").First(), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First(),null)
+                client.modMatch(id, int.Parse(collection.GetValues("IdJediVainqueur").First()), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First());
 
                 return RedirectToAction("Index");
             }

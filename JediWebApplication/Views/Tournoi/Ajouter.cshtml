@@ -1,0 +1,63 @@
+﻿@model JediWebApplication.ServiceReference1.TournoiContract
+
+@{
+    ViewBag.Title = "Ajouter";
+}
+
+<h2>Ajouter</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TournoiContract</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        Match 1 :
+        <select id="match1">
+            @foreach (var match in ViewBag.Matchs)
+            {
+                <option>@match.Jedi1.Nom vs @match.Jedi2.Nom</option>
+            }
+        </select>
+        Match 2 :
+        <select id="match2">
+            @foreach (var match in ViewBag.Matchs)
+            {
+                <option>@match.Jedi1.Nom vs @match.Jedi2.Nom</option>
+            }
+        </select>
+        Match 3 :
+        <select id="match3">
+            @foreach (var match in ViewBag.Matchs)
+            {
+                <option>@match.Jedi1.Nom vs @match.Jedi2.Nom</option>
+            }
+        </select>
+        Match 4 :
+        <select id="match4">
+            @foreach (var match in ViewBag.Matchs)
+            {
+                <option>@match.Jedi1.Nom vs @match.Jedi2.Nom</option>
+            }
+        </select>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -461,20 +461,6 @@ namespace JediWebApplication.ServiceReference1 {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EPhaseTournoi", Namespace="http://schemas.datacontract.org/2004/07/EntitiesLayer")]
-    public enum EPhaseTournoi : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        QuartFinale = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DemiFinale = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Finale = 2,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TournoiContract", Namespace="http://schemas.datacontract.org/2004/07/JediWebService")]
@@ -629,10 +615,10 @@ namespace JediWebApplication.ServiceReference1 {
         System.Threading.Tasks.Task AddMatchAsync(int idJediVainqueur, string jedic1, string jedic2, string stadec);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modMatch", ReplyAction="http://tempuri.org/IService1/modMatchResponse")]
-        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase);
+        void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modMatch", ReplyAction="http://tempuri.org/IService1/modMatchResponse")]
-        System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase);
+        System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delMatch", ReplyAction="http://tempuri.org/IService1/delMatchResponse")]
         void delMatch(int id);
@@ -647,16 +633,16 @@ namespace JediWebApplication.ServiceReference1 {
         System.Threading.Tasks.Task<JediWebApplication.ServiceReference1.TournoiContract[]> GetTournoisAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTournoi", ReplyAction="http://tempuri.org/IService1/AddTournoiResponse")]
-        void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTournoi", ReplyAction="http://tempuri.org/IService1/AddTournoiResponse")]
-        System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modTournoi", ReplyAction="http://tempuri.org/IService1/modTournoiResponse")]
-        void modTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModTournoi", ReplyAction="http://tempuri.org/IService1/ModTournoiResponse")]
+        void ModTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/modTournoi", ReplyAction="http://tempuri.org/IService1/modTournoiResponse")]
-        System.Threading.Tasks.Task modTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModTournoi", ReplyAction="http://tempuri.org/IService1/ModTournoiResponse")]
+        System.Threading.Tasks.Task ModTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/delTournoi", ReplyAction="http://tempuri.org/IService1/delTournoiResponse")]
         void delTournoi(int id);
@@ -860,12 +846,12 @@ namespace JediWebApplication.ServiceReference1 {
             return base.Channel.AddMatchAsync(idJediVainqueur, jedic1, jedic2, stadec);
         }
         
-        public void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase) {
-            base.Channel.modMatch(id, idJediVainqueur, jedic1, jedic2, stadec, phase);
+        public void modMatch(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec) {
+            base.Channel.modMatch(id, idJediVainqueur, jedic1, jedic2, stadec);
         }
         
-        public System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec, JediWebApplication.ServiceReference1.EPhaseTournoi phase) {
-            return base.Channel.modMatchAsync(id, idJediVainqueur, jedic1, jedic2, stadec, phase);
+        public System.Threading.Tasks.Task modMatchAsync(int id, int idJediVainqueur, string jedic1, string jedic2, string stadec) {
+            return base.Channel.modMatchAsync(id, idJediVainqueur, jedic1, jedic2, stadec);
         }
         
         public void delMatch(int id) {
@@ -884,20 +870,20 @@ namespace JediWebApplication.ServiceReference1 {
             return base.Channel.GetTournoisAsync();
         }
         
-        public void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
-            base.Channel.AddTournoi(nom, listMatchc);
+        public void AddTournoi(string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4) {
+            base.Channel.AddTournoi(nom, match1, match2, match3, match4);
         }
         
-        public System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
-            return base.Channel.AddTournoiAsync(nom, listMatchc);
+        public System.Threading.Tasks.Task AddTournoiAsync(string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4) {
+            return base.Channel.AddTournoiAsync(nom, match1, match2, match3, match4);
         }
         
-        public void modTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
-            base.Channel.modTournoi(id, nom, listMatchc);
+        public void ModTournoi(int id, string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4) {
+            base.Channel.ModTournoi(id, nom, match1, match2, match3, match4);
         }
         
-        public System.Threading.Tasks.Task modTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract[] listMatchc) {
-            return base.Channel.modTournoiAsync(id, nom, listMatchc);
+        public System.Threading.Tasks.Task ModTournoiAsync(int id, string nom, JediWebApplication.ServiceReference1.MatchContract match1, JediWebApplication.ServiceReference1.MatchContract match2, JediWebApplication.ServiceReference1.MatchContract match3, JediWebApplication.ServiceReference1.MatchContract match4) {
+            return base.Channel.ModTournoiAsync(id, nom, match1, match2, match3, match4);
         }
         
         public void delTournoi(int id) {

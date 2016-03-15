@@ -185,7 +185,6 @@
         <xs:element minOccurs="0" name="jedic1" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="jedic2" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="stadec" nillable="true" type="xs:string" />
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="phase" type="q22:EPhaseTournoi" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,7 +213,7 @@
   <xs:element name="GetTournoisResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetTournoisResult" nillable="true" type="q23:ArrayOfTournoiContract" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetTournoisResult" nillable="true" type="q22:ArrayOfTournoiContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -222,7 +221,10 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="listMatchc" nillable="true" type="q24:ArrayOfMatchContract" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match1" nillable="true" type="q23:MatchContract" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match2" nillable="true" type="q24:MatchContract" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match3" nillable="true" type="q25:MatchContract" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match4" nillable="true" type="q26:MatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -231,16 +233,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="modTournoi">
+  <xs:element name="ModTournoi">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="listMatchc" nillable="true" type="q25:ArrayOfMatchContract" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match1" nillable="true" type="q27:MatchContract" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match2" nillable="true" type="q28:MatchContract" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match3" nillable="true" type="q29:MatchContract" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="match4" nillable="true" type="q30:MatchContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="modTournoiResponse">
+  <xs:element name="ModTournoiResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -265,7 +270,7 @@
   <xs:element name="GetCaracteristiquesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q26:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesResult" nillable="true" type="q31:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -277,7 +282,7 @@
   <xs:element name="GetCaracteristiquesJediForceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediForceResult" nillable="true" type="q27:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediForceResult" nillable="true" type="q32:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -289,7 +294,7 @@
   <xs:element name="GetCaracteristiquesJediDefenseResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediDefenseResult" nillable="true" type="q28:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediDefenseResult" nillable="true" type="q33:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -301,7 +306,7 @@
   <xs:element name="GetCaracteristiquesJediChanceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediChanceResult" nillable="true" type="q29:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediChanceResult" nillable="true" type="q34:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -313,7 +318,7 @@
   <xs:element name="GetCaracteristiquesJediSanteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediSanteResult" nillable="true" type="q30:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesJediSanteResult" nillable="true" type="q35:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -325,7 +330,7 @@
   <xs:element name="GetCaracteristiquesStadeForceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeForceResult" nillable="true" type="q31:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeForceResult" nillable="true" type="q36:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -337,7 +342,7 @@
   <xs:element name="GetCaracteristiquesStadeDefenseResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeDefenseResult" nillable="true" type="q32:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeDefenseResult" nillable="true" type="q37:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -349,7 +354,7 @@
   <xs:element name="GetCaracteristiquesStadeChanceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeChanceResult" nillable="true" type="q33:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeChanceResult" nillable="true" type="q38:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -361,7 +366,7 @@
   <xs:element name="GetCaracteristiquesStadeSanteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeSanteResult" nillable="true" type="q34:ArrayOfCaracteristiqueContract" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/JediWebService" minOccurs="0" name="GetCaracteristiquesStadeSanteResult" nillable="true" type="q39:ArrayOfCaracteristiqueContract" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -370,8 +375,8 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="valeur" type="xs:int" />
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q35:EDefCaracteristique" />
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q36:ETypeCaracteristique" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q40:EDefCaracteristique" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q41:ETypeCaracteristique" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -386,8 +391,8 @@
         <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="valeur" type="xs:int" />
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q37:EDefCaracteristique" />
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q38:ETypeCaracteristique" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="definition" type="q42:EDefCaracteristique" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="type" type="q43:ETypeCaracteristique" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

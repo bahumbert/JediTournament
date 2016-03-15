@@ -51,7 +51,7 @@ namespace JediWebApplication.Views.Home
         {
             try
             {
-                //client.AddStade(collection.GetValues("NbPlaces").First(), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(),null,null,null,null);
+                client.AddStade(int.Parse(collection.GetValues("NbPlaces").First()), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(),null,null,null,null);
 
                 return RedirectToAction("Index");
             }
@@ -75,7 +75,7 @@ namespace JediWebApplication.Views.Home
         {
             try
             {
-                //client.modStade(id, collection.GetValues("NbPlaces").First(), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(), null, null, null, null);
+                client.modStade(id, int.Parse(collection.GetValues("NbPlaces").First()), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(), null, null, null, null);
 
                 return RedirectToAction("Index");
             }

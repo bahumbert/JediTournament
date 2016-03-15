@@ -1,0 +1,34 @@
+﻿@model JediWebApplication.ServiceReference1.TournoiContract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TournoiContract</h4>
+    <hr />
+    <input type="text" value="@ViewBag.Tournois.Nom" disabled />
+    <table>
+        <tr>
+            <th>Jedi Vainqueur</th>
+            <th>Jedi 1</th>
+            <th>Jedi 2</th>
+            <th>Stade</th>
+        </tr>
+        @foreach (var match in ViewBag.Tournois.Matchs)
+        {
+            <tr>
+                <td>@match.IdJediVainqueur</td>
+                <td>@match.Jedi1.Nom</td>
+                <td>@match.Jedi2.Nom</td>
+                <td>@match.Stade.Nom</td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Editer", "Editer", new { id = ViewBag.Tournois.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

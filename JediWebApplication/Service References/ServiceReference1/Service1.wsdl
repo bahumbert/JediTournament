@@ -104,11 +104,11 @@
   <wsdl:message name="IService1_AddTournoi_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddTournoiResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_modTournoi_InputMessage">
-    <wsdl:part name="parameters" element="tns:modTournoi" />
+  <wsdl:message name="IService1_ModTournoi_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModTournoi" />
   </wsdl:message>
-  <wsdl:message name="IService1_modTournoi_OutputMessage">
-    <wsdl:part name="parameters" element="tns:modTournoiResponse" />
+  <wsdl:message name="IService1_ModTournoi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModTournoiResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_delTournoi_InputMessage">
     <wsdl:part name="parameters" element="tns:delTournoi" />
@@ -253,9 +253,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddTournoi" message="tns:IService1_AddTournoi_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddTournoiResponse" message="tns:IService1_AddTournoi_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="modTournoi">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/modTournoi" message="tns:IService1_modTournoi_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/modTournoiResponse" message="tns:IService1_modTournoi_OutputMessage" />
+    <wsdl:operation name="ModTournoi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ModTournoi" message="tns:IService1_ModTournoi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ModTournoiResponse" message="tns:IService1_ModTournoi_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="delTournoi">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/delTournoi" message="tns:IService1_delTournoi_InputMessage" />
@@ -456,8 +456,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="modTournoi">
-      <soap:operation soapAction="http://tempuri.org/IService1/modTournoi" style="document" />
+    <wsdl:operation name="ModTournoi">
+      <soap:operation soapAction="http://tempuri.org/IService1/ModTournoi" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
