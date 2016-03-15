@@ -139,6 +139,7 @@ namespace JediWebService
     [DataContract]
     public class StadeContract
     {
+        int id;
         int nbPlace;
         string nom;
         string planete;
@@ -146,12 +147,20 @@ namespace JediWebService
 
         public StadeContract() { }
 
-        public StadeContract(int nbPlace, string nom, string planete, List<CaracteristiqueContract> caracs)
+        public StadeContract(int id, int nbPlace, string nom, string planete, List<CaracteristiqueContract> caracs)
         {
+            this.id = id;
             this.nbPlace = nbPlace;
             this.nom = nom;
             this.planete = planete;
             this.caracs = caracs;
+        }
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember]
@@ -240,15 +249,24 @@ namespace JediWebService
     [DataContract]
     public class TournoiContract
     {
+        int id;
         List<MatchContract> matchs;
         string nom;
 
         public TournoiContract() { }
 
-        public TournoiContract(List<MatchContract> matchs, string nom)
+        public TournoiContract(int id, List<MatchContract> matchs, string nom)
         {
+            this.id = id;
             this.matchs = matchs;
             this.nom = nom;
+        }
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember]
@@ -268,13 +286,15 @@ namespace JediWebService
     [DataContract]
     public class CaracteristiqueContract
     {
+        int id;
         string nom;
         EDefCaracteristique definition;
         ETypeCaracteristique type;
         int valeur;
 
-        public CaracteristiqueContract(string nom, EDefCaracteristique definition, ETypeCaracteristique type, int valeur)
+        public CaracteristiqueContract(int id, string nom, EDefCaracteristique definition, ETypeCaracteristique type, int valeur)
         {
+            this.id = id;
             this.nom = nom;
             this.definition = definition;
             this.type = type;
@@ -284,6 +304,13 @@ namespace JediWebService
         public CaracteristiqueContract()
         {
 
+        }
+
+        [DataMember]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         [DataMember]

@@ -332,6 +332,9 @@
     <Content Include="Views\Jedi\Editer.cshtml" />
     <Content Include="Views\Jedi\Supprimer.cshtml" />
     <Content Include="Views\Jedi\Details.cshtml" />
+    <Content Include="Views\Caractéristique\Ajouter.cshtml" />
+    <Content Include="Views\Caractéristique\Editer.cshtml" />
+    <Content Include="Views\Caractéristique\Supprimer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

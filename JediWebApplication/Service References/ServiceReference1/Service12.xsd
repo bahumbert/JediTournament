@@ -25,6 +25,7 @@
   <xs:complexType name="CaracteristiqueContract">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Definition" type="q1:EDefCaracteristique" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EntitiesLayer" minOccurs="0" name="Type" type="q2:ETypeCaracteristique" />
       <xs:element minOccurs="0" name="Valeur" type="xs:int" />
@@ -40,6 +41,7 @@
   <xs:complexType name="StadeContract">
     <xs:sequence>
       <xs:element minOccurs="0" name="Caracs" nillable="true" type="tns:ArrayOfCaracteristiqueContract" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="NbPlace" type="xs:int" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Planete" nillable="true" type="xs:string" />
@@ -70,6 +72,7 @@
   <xs:element name="ArrayOfTournoiContract" nillable="true" type="tns:ArrayOfTournoiContract" />
   <xs:complexType name="TournoiContract">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Matchs" nillable="true" type="tns:ArrayOfMatchContract" />
       <xs:element minOccurs="0" name="Nom" nillable="true" type="xs:string" />
     </xs:sequence>

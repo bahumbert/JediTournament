@@ -35,7 +35,7 @@ namespace JediWebService
 
                 foreach (Caracteristique c in j.Caracteristiques)
                 {
-                    listC.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                    listC.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
                 }
 
                 JediContract jedi = new JediContract(j.ID,j.Nom,listC,j.IsSith);
@@ -54,7 +54,7 @@ namespace JediWebService
             Jedi jedi = listjedi.Find(x => x.ID == id);
             foreach (Caracteristique c in jedi.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur);
+                CaracteristiqueContract carac = new CaracteristiqueContract(0, c.Nom, c.Definition, c.Type, c.Valeur);
                 list.Add(carac);
             }
             return list;
@@ -149,10 +149,10 @@ namespace JediWebService
 
                 foreach (Caracteristique c in s.Caracteristiques)
                 {
-                    listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                    listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
                 }
 
-                StadeContract stade = new StadeContract(s.NbPlaces,s.Nom,s.Planete,listCarac);
+                StadeContract stade = new StadeContract(0,s.NbPlaces,s.Nom,s.Planete,listCarac);
                 list.Add(stade);
             }
             return list;
@@ -167,7 +167,7 @@ namespace JediWebService
             Stade stade = listStade.Find(x => x.Planete == s.Planete);
             foreach (Caracteristique c in stade.Caracteristiques)
             {
-                CaracteristiqueContract carac = new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur);
+                CaracteristiqueContract carac = new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur);
                 list.Add(carac);
             }
             return list;
@@ -441,7 +441,7 @@ namespace JediWebService
 
                 foreach (Caracteristique c in listC)
                 {
-                    listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition,c.Type, c.Valeur));
+                    listCarac.Add(new CaracteristiqueContract(c.ID,c.Nom, c.Definition,c.Type, c.Valeur));
                 }
 
                 return listCarac;
@@ -456,7 +456,7 @@ namespace JediWebService
 
             foreach (Caracteristique c in listC)
             {
-                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
             }
 
             return listCarac;
@@ -471,7 +471,7 @@ namespace JediWebService
 
             foreach (Caracteristique c in listC)
             {
-                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
             }
 
             return listCarac;
@@ -486,7 +486,7 @@ namespace JediWebService
 
             foreach (Caracteristique c in listC)
             {
-                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
             }
 
             return listCarac;
@@ -501,7 +501,7 @@ namespace JediWebService
 
             foreach (Caracteristique c in listC)
             {
-                listCarac.Add(new CaracteristiqueContract(c.Nom, c.Definition, c.Type, c.Valeur));
+                listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
             }
 
             return listCarac;

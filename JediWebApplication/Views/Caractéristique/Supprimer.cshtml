@@ -1,0 +1,26 @@
+﻿@model JediWebApplication.ServiceReference1.CaracteristiqueContract
+
+@{
+    ViewBag.Title = "Supprimer";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CaracteristiqueContract</h4>
+    <hr />
+        
+        <input type="text" name="Nom" value="@ViewBag.Carac.Nom" disabled />
+        <input type="text" name="Nom" value="@ViewBag.Carac.Valeur" disabled />
+        <input type="text" name="Nom" value="@ViewBag.Carac.Definition" disabled />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -119,6 +119,9 @@ namespace JediWebApplication.ServiceReference1 {
         private JediWebApplication.ServiceReference1.EDefCaracteristique DefinitionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -146,6 +149,19 @@ namespace JediWebApplication.ServiceReference1 {
                 if ((this.DefinitionField.Equals(value) != true)) {
                     this.DefinitionField = value;
                     this.RaisePropertyChanged("Definition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -240,6 +256,9 @@ namespace JediWebApplication.ServiceReference1 {
         private JediWebApplication.ServiceReference1.CaracteristiqueContract[] CaracsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int NbPlaceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -267,6 +286,19 @@ namespace JediWebApplication.ServiceReference1 {
                 if ((object.ReferenceEquals(this.CaracsField, value) != true)) {
                     this.CaracsField = value;
                     this.RaisePropertyChanged("Caracs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -453,6 +485,9 @@ namespace JediWebApplication.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private JediWebApplication.ServiceReference1.MatchContract[] MatchsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -465,6 +500,19 @@ namespace JediWebApplication.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
             }
         }
         

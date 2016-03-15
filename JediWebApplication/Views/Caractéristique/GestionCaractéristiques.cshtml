@@ -12,8 +12,10 @@
         <table class="table tableau">
             <thead>
                 <tr>
-                    <th>Nom</th>
-                    <th>Valeur</th>
+                    <th>nom</th>
+                    <th>valeur</th>
+                    <th>définition</th>
+                    <th>type</th>
                 </tr>
             </thead>
             @foreach (var carac in ViewBag.Caractéristiques)
@@ -22,9 +24,16 @@
                     <tr>
                         <td>@carac.Nom</td>
                         <td>@carac.Valeur</td>
+                        <td>@carac.Definition</td>
+                        <td>@carac.Type</td>
+                        <td><a href="./Editer/@carac.Id">Modifier</a></td>
+                        <td><a href="./Supprimer/@carac.Id">Supprimer</a></td>
                     </tr>
                 </tbody>
             }
+            <tr>
+                <td><a href="./Ajouter/">Ajouter</a></td>
+            </tr>
         </table>
     </div>
 </div>

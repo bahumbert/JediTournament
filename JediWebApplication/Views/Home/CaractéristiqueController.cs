@@ -8,34 +8,48 @@ namespace JediWebApplication.Views.Home
 {
     public class CaractéristiqueController : Controller
     {
+
+        private ServiceReference1.Service1Client client;
+
+        public CaractéristiqueController()
+        {
+           client = new ServiceReference1.Service1Client();
+        }
+
+        public ActionResult index()
+        {
+            return RedirectToAction("GestionCaractéristiques");
+        }
+
+
         // GET: Caractéristique
         public ActionResult GestionCaractéristiques()
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+            
             ViewBag.Caractéristiques = client.GetCaracteristiques() ;
-            client.Close();
             return View();
         }
 
         // GET: Caractéristique/Details/5
-        public ActionResult Details(int id)
+        /*public ActionResult Details(int id)
+        {
+            ViewBag.Carac = client.GetCaracteristiques().Where(c => c.Id == id);
+            return View();
+        }*/
+
+        // GET: Caractéristique/Ajouter
+        public ActionResult Ajouter()
         {
             return View();
         }
 
-        // GET: Caractéristique/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Caractéristique/Create
+        // POST: Caractéristique/Ajouter
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ajouter(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                //client.AddCarac(collection.GetValues("Nom").First(), collection.GetValues("Valeur").First(), collection.GetValues("Definition").First(), collection.GetValues("Type").First());
 
                 return RedirectToAction("Index");
             }
@@ -45,19 +59,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Caractéristique/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Caractéristique/Editer/5
+        public ActionResult Editer(int id)
         {
+            ViewBag.Carac = client.GetCaracteristiques().Where(c => c.Id == id).First();
             return View();
         }
 
-        // POST: Caractéristique/Edit/5
+        // POST: Caractéristique/Editer/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                //client.modCarac(id, collection.GetValues("Nom").First(), collection.GetValues("Valeur").First(), collection.GetValues("Definition").First(), collection.GetValues("Type").First());
 
                 return RedirectToAction("Index");
             }
@@ -67,19 +82,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Caractéristique/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Caractéristique/Supprimer/5
+        public ActionResult Supprimer(int id)
         {
+            ViewBag.Carac = client.GetCaracteristiques().Where(c => c.Id == id).First();
             return View();
         }
 
-        // POST: Caractéristique/Delete/5
+        // POST: Caractéristique/Supprimer/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Supprimer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                client.delCarac(id);
 
                 return RedirectToAction("Index");
             }
