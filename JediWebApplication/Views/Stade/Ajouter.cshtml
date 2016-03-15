@@ -1,0 +1,111 @@
+﻿@model JediWebApplication.ServiceReference1.StadeContract
+
+@{
+    ViewBag.Title = "Ajouter";
+}
+
+<h2>Ajouter</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>StadeContract</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NbPlace, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NbPlace, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NbPlace, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nom, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Planete, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Planete, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Planete, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            Force :
+            <select id="force">
+                <option>null</option>
+                @foreach (var caracteristique in ViewBag.Force)
+                {
+                    if (@caracteristique.Nom != null)
+                    {
+
+                        <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                    }
+                }
+            </select>
+
+            Defense :
+            <select id="defense">
+                <option>null</option>
+                @foreach (var caracteristique in ViewBag.Defense)
+                {
+                    if (@caracteristique.Nom != null)
+                    {
+
+                        <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                    }
+                }
+            </select>
+
+            Chance :
+            <select id="chance">
+                <option>null</option>
+                @foreach (var caracteristique in ViewBag.Chance)
+                {
+                    if (@caracteristique.Nom != null)
+                    {
+
+                        <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                    }
+                }
+            </select>
+
+            Sante :
+            <select id="sante">
+                <option>null</option>
+                @foreach (var caracteristique in ViewBag.Sante)
+                {
+                    if (@caracteristique.Nom != null)
+                    {
+
+                        <option value="@caracteristique.Nom">@caracteristique.Nom : @caracteristique.Valeur</option>
+
+                    }
+                }
+            </select>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

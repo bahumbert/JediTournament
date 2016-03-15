@@ -44,6 +44,12 @@
   <wsdl:message name="IService1_GetStades_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStadesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesByStade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesByStade" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesByStade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesByStadeResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddStade_InputMessage">
     <wsdl:part name="parameters" element="tns:AddStade" />
   </wsdl:message>
@@ -140,6 +146,30 @@
   <wsdl:message name="IService1_GetCaracteristiquesJediSante_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCaracteristiquesJediSanteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeForce_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeForce" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeForce_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeForceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeDefense_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeDefense" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeDefense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeDefenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeChance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeChance" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeChance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeChanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeSante_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeSante" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCaracteristiquesStadeSante_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaracteristiquesStadeSanteResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_AddCarac_InputMessage">
     <wsdl:part name="parameters" element="tns:AddCarac" />
   </wsdl:message>
@@ -182,6 +212,10 @@
     <wsdl:operation name="GetStades">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetStades" message="tns:IService1_GetStades_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetStadesResponse" message="tns:IService1_GetStades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesByStade">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesByStade" message="tns:IService1_GetCaracteristiquesByStade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesByStadeResponse" message="tns:IService1_GetCaracteristiquesByStade_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddStade">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddStade" message="tns:IService1_AddStade_InputMessage" />
@@ -247,6 +281,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediSante" message="tns:IService1_GetCaracteristiquesJediSante_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesJediSanteResponse" message="tns:IService1_GetCaracteristiquesJediSante_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeForce">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeForce" message="tns:IService1_GetCaracteristiquesStadeForce_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeForceResponse" message="tns:IService1_GetCaracteristiquesStadeForce_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeDefense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeDefense" message="tns:IService1_GetCaracteristiquesStadeDefense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeDefenseResponse" message="tns:IService1_GetCaracteristiquesStadeDefense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeChance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeChance" message="tns:IService1_GetCaracteristiquesStadeChance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeChanceResponse" message="tns:IService1_GetCaracteristiquesStadeChance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeSante">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeSante" message="tns:IService1_GetCaracteristiquesStadeSante_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCaracteristiquesStadeSanteResponse" message="tns:IService1_GetCaracteristiquesStadeSante_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddCarac">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCarac" message="tns:IService1_AddCarac_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCaracResponse" message="tns:IService1_AddCarac_OutputMessage" />
@@ -309,6 +359,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetStades">
       <soap:operation soapAction="http://tempuri.org/IService1/GetStades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesByStade">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesByStade" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -453,6 +512,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetCaracteristiquesJediSante">
       <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesJediSante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeForce">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesStadeForce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeDefense">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesStadeDefense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeChance">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesStadeChance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaracteristiquesStadeSante">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCaracteristiquesStadeSante" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

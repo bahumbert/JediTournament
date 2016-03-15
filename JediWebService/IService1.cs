@@ -33,6 +33,9 @@ namespace JediWebService
         List<StadeContract> GetStades();
 
         [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesByStade(int id);
+
+        [OperationContract]
         void AddStade(int nbPlaces, string nom, string planete, CaracteristiqueContract force, CaracteristiqueContract defense, CaracteristiqueContract chance, CaracteristiqueContract sante);
 
         [OperationContract]
@@ -79,6 +82,15 @@ namespace JediWebService
         List<CaracteristiqueContract> GetCaracteristiquesJediChance();
         [OperationContract]
         List<CaracteristiqueContract> GetCaracteristiquesJediSante();
+
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesStadeForce();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesStadeDefense();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesStadeChance();
+        [OperationContract]
+        List<CaracteristiqueContract> GetCaracteristiquesStadeSante();
 
         [OperationContract]
         void AddCarac(string nom, int valeur, EDefCaracteristique definition, ETypeCaracteristique type);

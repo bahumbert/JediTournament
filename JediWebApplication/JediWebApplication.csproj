@@ -335,6 +335,10 @@
     <Content Include="Views\Caractéristique\Ajouter.cshtml" />
     <Content Include="Views\Caractéristique\Editer.cshtml" />
     <Content Include="Views\Caractéristique\Supprimer.cshtml" />
+    <Content Include="Views\Stade\Editer.cshtml" />
+    <Content Include="Views\Stade\Supprimer.cshtml" />
+    <Content Include="Views\Stade\Details.cshtml" />
+    <Content Include="Views\Stade\Ajouter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

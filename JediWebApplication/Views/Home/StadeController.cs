@@ -8,34 +8,50 @@ namespace JediWebApplication.Views.Home
 {
     public class StadeController : Controller
     {
+
+        private ServiceReference1.Service1Client client;
+
+        public StadeController()
+        {
+            client = new ServiceReference1.Service1Client();
+        }
+
+        public ActionResult index()
+        {
+            return RedirectToAction("GestionStades");
+        }
+
         // GET: Stade
         public ActionResult GestionStades()
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             ViewBag.Stades = client.GetStades();
-            client.Close();
             return View();
         }
 
         // GET: Stade/Details/5
         public ActionResult Details(int id)
         {
+            ViewBag.Stades = client.GetStades().Where(s => s.Id == id).First();
             return View();
         }
 
-        // GET: Stade/Create
-        public ActionResult Create()
+        // GET: Stade/Ajouter
+        public ActionResult Ajouter()
         {
+            ViewBag.Force = client.GetCaracteristiquesStadeForce();
+            ViewBag.Defense = client.GetCaracteristiquesStadeDefense();
+            ViewBag.Chance = client.GetCaracteristiquesStadeChance();
+            ViewBag.Sante = client.GetCaracteristiquesStadeSante();
             return View();
         }
 
-        // POST: Stade/Create
+        // POST: Stade/Ajouter
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ajouter(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                //client.AddStade(collection.GetValues("NbPlaces").First(), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(),null,null,null,null);
 
                 return RedirectToAction("Index");
             }
@@ -45,19 +61,21 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Stade/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Stade/Editer/5
+        public ActionResult Editer(int id)
         {
+            ViewBag.Stades = client.GetStades().Where(s => s.Id == id).First();
+            ViewBag.Caracteristiques = client.GetCaracteristiquesByStade(id);
             return View();
         }
 
-        // POST: Stade/Edit/5
+        // POST: Stade/Editer/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                //client.modStade(id, collection.GetValues("NbPlaces").First(), collection.GetValues("Nom").First(), collection.GetValues("Planete").First(), null, null, null, null);
 
                 return RedirectToAction("Index");
             }
@@ -67,19 +85,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Stade/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Stade/Supprimer/5
+        public ActionResult Supprimer(int id)
         {
+            ViewBag.Stades = client.GetStades().Where(s => s.Id == id).First();
             return View();
         }
 
-        // POST: Stade/Delete/5
+        // POST: Stade/Supprimer/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Supprimer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                client.delStade(id);
 
                 return RedirectToAction("Index");
             }

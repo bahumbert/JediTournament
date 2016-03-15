@@ -20,11 +20,18 @@
             {
                 <tbody>
                     <tr>
+                        <td>@stade.Nom</td>
                         <td>@stade.Planete</td>
                         <td>@stade.NbPlace</td>
+                        <td><a href="./Details/@stade.Id">Détails</a></td>
+                        <td><a href="./Editer/@stade.Id">Modifier</a></td>
+                        <td><a href="./Supprimer/@stade.Id">Supprimer</a></td>
                     </tr>
                 </tbody>
             }
+            <tr>
+                <td><a href="./Ajouter/">Ajouter</a></td>
+            </tr>
         </table>
     </div>
 </div>

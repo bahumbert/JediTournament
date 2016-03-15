@@ -152,19 +152,19 @@ namespace JediWebService
                     listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
                 }
 
-                StadeContract stade = new StadeContract(0,s.NbPlaces,s.Nom,s.Planete,listCarac);
+                StadeContract stade = new StadeContract(s.ID,s.NbPlaces,s.Nom,s.Planete,listCarac);
                 list.Add(stade);
             }
             return list;
         }
 
-        public List<CaracteristiqueContract> GetCaracteristiquesByStade(StadeContract s)
+        public List<CaracteristiqueContract> GetCaracteristiquesByStade(int id)
         {
             List<CaracteristiqueContract> list = new List<CaracteristiqueContract>();
             List<Caracteristique> listcaract = new List<Caracteristique>();
             List<Stade> listStade = new List<Stade>();
             listStade = jtm.getAllStades();
-            Stade stade = listStade.Find(x => x.Planete == s.Planete);
+            Stade stade = listStade.Find(x => x.ID == id);
             foreach (Caracteristique c in stade.Caracteristiques)
             {
                 CaracteristiqueContract carac = new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur);
@@ -502,6 +502,67 @@ namespace JediWebService
             foreach (Caracteristique c in listC)
             {
                 listCarac.Add(new CaracteristiqueContract(0,c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+
+        public List<CaracteristiqueContract> GetCaracteristiquesStadeForce()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllStadeCaracs().Where(c => c.Definition == EDefCaracteristique.Force).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(0, c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesStadeDefense()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllStadeCaracs().Where(c => c.Definition == EDefCaracteristique.Defense).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(0, c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesStadeChance()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllStadeCaracs().Where(c => c.Definition == EDefCaracteristique.Chance).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(0, c.Nom, c.Definition, c.Type, c.Valeur));
+            }
+
+            return listCarac;
+        }
+
+        public List<CaracteristiqueContract> GetCaracteristiquesStadeSante()
+        {
+            List<CaracteristiqueContract> listCarac = new List<CaracteristiqueContract>();
+            List<Caracteristique> listC = new List<Caracteristique>();
+
+            listC = jtm.getAllStadeCaracs().Where(c => c.Definition == EDefCaracteristique.Sante).ToList();
+
+            foreach (Caracteristique c in listC)
+            {
+                listCarac.Add(new CaracteristiqueContract(0, c.Nom, c.Definition, c.Type, c.Valeur));
             }
 
             return listCarac;

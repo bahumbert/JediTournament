@@ -1,0 +1,30 @@
+﻿@model JediWebApplication.ServiceReference1.StadeContract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StadeContract</h4>
+    <hr />
+    <input type="text" name="Nom" value="@ViewBag.Stade.Nom" disabled />
+    <input type="text" name="Nom" value="@ViewBag.Stade.Planete" disabled />
+    <input type="text" name="Nom" value="@ViewBag.Stade.NbPlace" disabled />
+
+</div>
+@foreach (var caracteristique in ViewBag.Caracteristiques)
+{
+    <div class="col-md-10">
+
+        @if (@caracteristique.Nom != null)
+        {
+            <div>@caracteristique.Nom : @caracteristique.Valeur</div>
+        }
+    </div>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
