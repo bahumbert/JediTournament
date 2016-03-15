@@ -339,6 +339,9 @@
     <Content Include="Views\Stade\Supprimer.cshtml" />
     <Content Include="Views\Stade\Details.cshtml" />
     <Content Include="Views\Stade\Ajouter.cshtml" />
+    <Content Include="Views\Match\Ajouter.cshtml" />
+    <Content Include="Views\Match\Editer.cshtml" />
+    <Content Include="Views\Match\Supprimer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

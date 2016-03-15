@@ -8,34 +8,46 @@ namespace JediWebApplication.Views.Home
 {
     public class MatchController : Controller
     {
+
+        private ServiceReference1.Service1Client client;
+
+        public MatchController()
+        {
+            client = new ServiceReference1.Service1Client();
+        }
+
+        public ActionResult index()
+        {
+            return RedirectToAction("GestionMatchs");
+        }
+
         // GET: Match
         public ActionResult GestionMatchs()
         {
-            ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
             ViewBag.Matchs = client.GetMatchs();
-            client.Close();
             return View();
         }
 
         // GET: Match/Details/5
-        public ActionResult Details(int id)
+       /* public ActionResult Details(int id)
         {
+            return View();
+        }*/
+
+        // GET: Match/Ajouter
+        public ActionResult Ajouter()
+        {
+            ViewBag.Jedi = client.GetJedis();
             return View();
         }
 
-        // GET: Match/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Match/Create
+        // POST: Match/Ajouter
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Ajouter(FormCollection collection)
         {
             try
             {
-                // TODO: Add insert logic here
+                //client.addMatch(collection.GetValues("IdJediVainqueur").First(), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First(), null)
 
                 return RedirectToAction("Index");
             }
@@ -45,19 +57,21 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Match/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Match/Editer/5
+        public ActionResult Editer(int id)
         {
+            ViewBag.Matchs = client.GetMatchs().Where(s => s.Id == id).First();
+            ViewBag.Jedi = client.GetJedis();
             return View();
         }
 
-        // POST: Match/Edit/5
+        // POST: Match/Editer/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Editer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                //client.modMatch(id, collection.GetValues("IdJediVainqueur").First(), collection.GetValues("Jedi1").First(), collection.GetValues("Jedi2").First(), collection.GetValues("Stade").First(),null)
 
                 return RedirectToAction("Index");
             }
@@ -67,19 +81,20 @@ namespace JediWebApplication.Views.Home
             }
         }
 
-        // GET: Match/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Match/Supprimer/5
+        public ActionResult Supprimer(int id)
         {
+            ViewBag.Matchs = client.GetMatchs().Where(s => s.Id == id).First();
             return View();
         }
 
-        // POST: Match/Delete/5
+        // POST: Match/Supprimer/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Supprimer(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                client.delMatch(id);
 
                 return RedirectToAction("Index");
             }
